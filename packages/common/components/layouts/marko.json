@@ -1,0 +1,17 @@
+{
+  "<common-daily-layout>": {
+    "template": "./daily.marko"
+  },
+  "<common-daily-2-layout>": {
+    "template": "./daily-2.marko"
+  },
+  "<common-breaking-news-layout>": {
+    "template": "./breaking-news.marko"
+  },
+  "<common-products-layout>": {
+    "template": "./products.marko"
+  },
+  "<common-weekly-layout>": {
+    "template": "./weekly.marko"
+  }
+}
