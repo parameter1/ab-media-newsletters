@@ -12,11 +12,11 @@ module.exports = {
     socialMedia: {
       imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
-        { provider: 'facebook', href: '', target: '_blank' },
-        { provider: 'twitter', href: '', target: '_blank' },
-        { provider: 'linkedin', href: '', target: '_blank' },
-        { provider: 'youtube', href: '', target: '_blank' },
-        { provider: 'instagram', href: '', target: '_blank' },
+        { provider: 'facebook', href: 'https://www.facebook.com/athleticbusiness', target: '_blank' },
+        { provider: 'twitter', href: 'https://twitter.com/Athleticbiz', target: '_blank' },
+        { provider: 'linkedin', href: 'https://www.linkedin.com/company/athletic-business/', target: '_blank' },
+        { provider: 'youtube', href: 'https://www.youtube.com/user/AthleticBusinessMag', target: '_blank' },
+        { provider: 'instagram', href: 'https://www.instagram.com/athleticbiz/', target: '_blank' },
       ],
     },
   },
