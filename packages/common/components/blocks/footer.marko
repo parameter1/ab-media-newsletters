@@ -6,6 +6,7 @@ $ const newsletterConfig = config.get(newsletter.alias);
 $ const tagline = get(newsletterConfig, "tagline");
 $ const subscribeLink = get(newsletterConfig, "subscribeLink");
 $ const publicationName = website.get("name");
+$ const privacyPolicyLink = get(newsletterConfig, "privacyPolicyLink");
 
 $ const standardStyle = {
   "font-size": "17px",
@@ -98,7 +99,7 @@ $ const taglineStyle = {
                   <td align="left" valign="top" style=standardStyle>
                     Did someone forward you this email?
                     <a href=subscribeLink style=standardUnderlineStyle>
-                      Sign up here
+                      Subscribe to This Newsletter
                     </a>
                   </td>
                 </tr>
@@ -128,21 +129,25 @@ $ const taglineStyle = {
 
                 <tr>
                   <td align="left" valign="top" style=smallerStyle>
-                    You are receiving this email because you subscribed to receive relevant news from ${publicationName}.
+                    You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.<br/>
+                    This e-newsletter is intended to provide athletics, fitness and recreation professionals with relevant, timely and fast-reading nationwide stories within our industry.
                   </td>
                 </tr>
                 <common-table-spacer-element height="19" />
                 <tr>
                   <td align="left" valign="top" style=smallerStyle>
-                    <a href="@{confirmunsubscribelink}@" style=smallerUnderlineStyle>
-                      Unsubscribe here
-                    </a>
+                    <a href="@{confirmunsubscribelink}@" style=smallerUnderlineStyle>Unsubscribe</a>
+                    | <a href=get(newsletterConfig, "emailPrefLink") style=smallerUnderlineStyle>Manage Email Preferences</a>
+                    | <a href=get(newsletterConfig, "magazineSubscription") style=smallerUnderlineStyle>Start/Renew Magazine Subscription</a>
+                    | <a href="@{forwardtoafriendlink}@" style=smallerUnderlineStyle>Forward to a Colleague</a>
                   </td>
                 </tr>
                 <common-table-spacer-element height="19" />
                 <tr>
                   <td align="left" valign="top" style=smallerStyle>
-                    &copy; ${(new Date()).getFullYear()} All rights reserved. | Randall-Reilly 3200 Rice Mine Road NE Tuscaloosa, AL 35406 USA
+                    <strong>AB Media Inc.</strong><br/>
+                    22 E. Mifflin St., Ste. 910, Madison, WI 53703<br/>
+                    &copy; ${(new Date()).getFullYear()} | ${privacyPolicyLink} Privacy Policy
                   </td>
                 </tr>
                 <common-table-spacer-element height="22" />
