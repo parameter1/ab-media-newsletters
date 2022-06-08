@@ -1,3 +1,64 @@
 module.exports = {
-
+  ab: {
+    brandName: 'Athletic Business',
+    logoSrc: '/files/base/abmedia/all/image/static/ab-site-logo.png',
+    advertiseLink: '',
+    contactUsLink: '',
+    privacyPolicyLink: '',
+    emailPrefLink: '',
+    magazineSubscription: '',
+    publicationId: '615602b1da01648223320698',
+    bgColor: '',
+    socialMedia: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter',
+      links: [
+        { provider: 'facebook', href: '', target: '_blank' },
+        { provider: 'twitter', href: '', target: '_blank' },
+        { provider: 'linkedin', href: '', target: '_blank' },
+        { provider: 'youtube', href: '', target: '_blank' },
+        { provider: 'instagram', href: '', target: '_blank' },
+      ],
+    },
+  },
+  aqua: {
+    brandName: 'Aqua',
+    logoSrc: '',
+    advertiseLink: '',
+    contactUsLink: '',
+    privacyPolicyLink: '',
+    emailPrefLink: '',
+    magazineSubscription: '',
+    publicationId: '6156026eda016482232f7b11',
+    bgColor: '',
+    socialMedia: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter',
+      links: [
+        { provider: 'facebook', href: '', target: '_blank' },
+        { provider: 'twitter', href: '', target: '_blank' },
+        { provider: 'instagram', href: '', target: '_blank' },
+      ],
+    },
+  },
+  wfb: {
+    brandName: 'Wood Floor Business',
+    logoSrc: '',
+    advertiseLink: '',
+    contactUsLink: '',
+    privacyPolicyLink: '',
+    emailPrefLink: '',
+    magazineSubscription: '',
+    publicationId: '61560280da016482233042ea',
+    bgColor: '',
+    socialMedia: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter',
+      links: [
+        { provider: 'facebook', href: '', target: '_blank' },
+        { provider: 'twitter', href: '', target: '_blank' },
+        { provider: 'linkedin', href: '', target: '_blank' },
+        { provider: 'youtube', href: '', target: '_blank' },
+        { provider: 'pinterest', href: '', target: '_blank' },
+        { provider: 'instagram', href: '', target: '_blank' },
+      ],
+    },
+  },
 };
