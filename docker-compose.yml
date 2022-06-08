@@ -23,9 +23,6 @@ x-env-defaults: &env
   NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY-(unset)}
   EMAILX_SERVE_URI: ${EMAILX_SERVE_URI-https://abmedia.serve.email-x.parameter1.com}
 
-x-env-leonis: &env-leonis
-  GRAPHQL_URI: ${GRAPHQL_URI-https://leonis.graphql.base.parameter1.com}
-
 x-env-virgon: &env-virgon
   GRAPHQL_URI: ${GRAPHQL_URI-https://virgon.graphql.base.parameter1.com}
 
@@ -50,7 +47,7 @@ services:
     working_dir: /root/tenants/all
     environment:
       <<: *env
-      <<: *env-leonis
+      <<: *env-virgon
       PORT: 80
       EXPOSED_PORT: 22291
       LIVERELOAD_PORT: 32291
