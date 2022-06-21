@@ -1,0 +1,82 @@
+import latestIssueFragment from "@ab-media/package-common/graphql/fragments/latest-issue";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
+import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
+
+$ const { config } = out.global;
+$ const { date, newsletter } = input;
+
+$ const newsletterConfig = config.get(newsletter.alias);
+$ const publicationId = get(newsletterConfig, "publicationId");
+
+$ const sectionStyle = {
+  "font-size": "15px",
+  "color": "#000000",
+  "text-decoration": "none",
+  "display": "inline-block",
+  "font-weight": "700",
+  "font-family": "'Roboto', Arial, snans-serif",
+  "text-transform": "uppercase",
+  "padding": "0 24px",
+};
+
+$ const buttonStyle = {
+  "background-color": "#436daa",
+  "border": "none",
+  "border-radius": "4px",
+  "color": "#ffffff",
+  "display": "inline-block",
+  "letter-spacing": ".8px",
+  "line-height": "1.25",
+  "text-align": "center",
+  "text-transform": "uppercase",
+  "font-weight": "700",
+  "font-size": "12px",
+  "padding": "12px",
+};
+
+<marko-web-query|{ node: latestIssue }|
+  name="magazine-latest-issue"
+  params={
+  publicationId: publicationId,
+  queryFragment: latestIssueFragment
+  }
+>
+  <tr>
+    <td align="center" valign="top">
+      <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" valign="top" >
+            <common-list-header-element title="Subscribe" />
+          </td>
+        </tr>
+        <common-table-spacer-element height="24" />
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <table role="presentation" width="100%" border="0" align="left"  cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="left" style="padding-left: 15px">
+            <marko-core-obj-value|{ value: coverImage }| obj=latestIssue field="coverImage" as="object">
+              <marko-newsletter-imgix
+                src=coverImage.src
+                alt=coverImage.alt
+                attrs={ border: 0, width: 150 }
+              >
+                <@link href=latestIssue.digitalEditionUrl target="_blank" />
+              </marko-newsletter-imgix>
+            </marko-core-obj-value>
+          </td>
+          <td valign="top">
+            <table>
+              <common-content-magazine-item-block date=date newsletter=newsletter />
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <common-table-spacer-element height=32 />
+</marko-web-query>

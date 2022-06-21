@@ -1,0 +1,76 @@
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
+
+$ const { sectionName, date, newsletter } = input;
+
+$ const withImage = defaultValue(input.withImage, false);
+$ const imagePosition = defaultValue(input.imagePosition, 'right');
+$ const withSection = defaultValue(input.withSection, true);
+$ const urlParams = defaultValue(input.urlParams, false);
+
+$ const queryParams = {
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit: input.limit,
+  skip: input.skip,
+  queryFragment,
+};
+
+$ const tagStyle = {
+  "font-size": "14px",
+  "line-height": "19px",
+  "color": "#257478",
+  "text-transform": "uppercase",
+}
+
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=true params=queryParams>
+  $ const perRow = 4;
+  $ const chunks = nodes.reduce((arr, item, index) => {
+    const chunkIndex = Math.floor(index/perRow);
+
+    if (!arr[chunkIndex]) {
+      arr[chunkIndex] = [];
+    }
+    arr[chunkIndex].push(item);
+    return arr;
+  }, []);
+
+  <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
+    <common-table-spacer-element height="25" />
+    <tr>
+      <td align="center" valign="top">
+        <table role="presentation" width="600" border="0" align="center"  cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center" valign="top">
+              <table role="presentation" border="0" align="center" cellpadding="0" cellspacing="0" style="background: #eff1f3;" >
+                <tr>
+                  <td align="center" valign="middle" height="38">
+                    <a href="#" target="_blank" style="font-size:15px;color: #000000;text-decoration: none;display: block;font-weight:700;font-family:'Roboto', Arial, sans-serif;text-transform: uppercase;padding: 0 24px;">
+                      A Special Thank You to Our Partners
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <for|chunk| of=chunks>
+          <tr>
+            <for|content| of=chunk>
+              <td align="center">
+                <common-content-partners-item-block
+                  content=content
+                  with-section=withSection
+                  with-image=withImage
+                  url-params=urlParams
+                />
+              </td>
+            </for>
+          </tr>
+        </for>
+      </td>
+    </tr>
+  </table>
+</marko-web-query>
