@@ -36,10 +36,7 @@ jobs:
         namespace:
           - newsletters
         tenant:
-          - fcp
-          - scn
-          - gip
-          - ooh
+          - all
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Kubernetes
