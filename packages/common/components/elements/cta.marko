@@ -1,7 +1,7 @@
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
 $ const { linkUrl } = input;
-$ const linkText = defaultValue(input.linkText, 'Continue Reading');
+$ const linkText = defaultValue(input.linkText, 'Read More');
 
 $ const linkStyle = {
   "font-size": "17px",
@@ -13,7 +13,7 @@ $ const linkStyle = {
 };
 
 <common-link-element
-  link-text="Continue Reading"
+  link-text="Read More"
   link-url=linkUrl
   link-style=linkStyle
 />
