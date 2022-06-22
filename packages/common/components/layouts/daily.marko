@@ -1,16 +1,12 @@
 import { get } from "@parameter1/base-cms-object-path";
 import { parseBooleanHeader } from "@parameter1/base-cms-utils";
 import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
-import rotateArray from "@ab-media/package-common/utils/rotate-array";
 
 $ const { website, config, req } = out.global;
 $ const { newsletter, date, publicationId } = input.data;
 
 $ const emailX = config.get("emailX");
 $ const nativeX = config.getAsObject("nativeX");
-$ const dayOfWeek = new Date(date).getDay() || 7;
-$ const adUnits = ["rotation-a", "rotation-e", "rotation-d", "rotation-c", "rotation-b"];
-$ const adSlots = rotateArray(adUnits, dayOfWeek - 1);
 
 $ const withImage = parseBooleanHeader(get(req, "query.with-image"));
 $ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"));
@@ -18,12 +14,6 @@ $ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"))
 $ const utmTerm = get(req, "query.utm_term");
 $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
 
-$ const layout = get(req, "query.layout") || "daily";
-
-<!-- <if(layout === 'daily-2')>
-  <common-daily-2-layout data=input.data />
-</if> -->
-<!-- <else> -->
 <marko-newsletter-root
   title=newsletter.name
   description=newsletter.description
@@ -35,44 +25,30 @@ $ const layout = get(req, "query.layout") || "daily";
   <@body style="padding:0; margin:0;font-family: 'Roboto', Arial, sans-serif; -webkit-text-size-adjust:100%;">
     <common-body-wrapper-block newsletter=newsletter date=date>
       <@body>
-        <!-- Announcement block -->
-        <!-- <common-content-background-block
-          date=date
-          section-name="Announcement"
-          newsletter=newsletter
-        /> -->
 
-        <!--Lead story block-->
+        <!-- Content list block (with image)-->
         <common-content-list-block
           date=date
-          section-name="Top Story"
+          section-name="Main"
           newsletter=newsletter
           with-image=true
-          image-position='top'
+          image-position='right'
+          continue-reading=continueReading
           url-params=urlParams
           limit=1
-        />
-
-        <!-- Sponsored by block-->
-        <common-ad-wrapper-block
-          date=date
-          section-name="Sponsor"
-          newsletter=newsletter
-          promotion-component="sponsored-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+          skip=0
         />
 
         <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
+        <common-ad-wrapper-block
           date=date
-          section-name="Rotation A"
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[0], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[0]}`)
-        /> -->
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+        />
 
-        <!-- Content list block (no image) -->
+        <!-- Content list block (no image)-->
         <common-content-list-block
           date=date
           section-name="Main"
@@ -81,24 +57,14 @@ $ const layout = get(req, "query.layout") || "daily";
           image-position='right'
           continue-reading=continueReading
           url-params=urlParams
-          limit=2
-          skip=0
+          limit=1
+          skip=1
         />
 
-        <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
-          date=date
-          section-name="Rotation B"
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[1], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[1]}`)
-        /> -->
-
         <!-- Sponsored by block-->
+        <!-- @ToDo add nativeX slot -->
         <common-ad-wrapper-block
           date=date
-          section-name="Sponsor"
           newsletter=newsletter
           promotion-component="sponsored-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
@@ -111,26 +77,16 @@ $ const layout = get(req, "query.layout") || "daily";
           newsletter=newsletter
           with-image=withImage
           image-position='right'
-          continue-reading=continueReading
+          continue-reading=true
           url-params=urlParams
           limit=2
           skip=2
         />
 
-        <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
-          date=date
-          section-name="Rotation C"
-          newsletter=newsletter
-          promotion-component="native-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[2], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[2]}`)
-        /> -->
-
         <!-- Sponsored by block-->
+        <!-- @ToDo add nativeX slot -->
         <common-ad-wrapper-block
           date=date
-          section-name="Sponsor"
           newsletter=newsletter
           promotion-component="sponsored-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
@@ -149,34 +105,17 @@ $ const layout = get(req, "query.layout") || "daily";
           skip=4
         />
 
-        <!-- Data snapshot block -->
-        <!-- <common-content-background-block
-          date=date
-          section-name="Data Snapshot"
-          newsletter=newsletter
-        /> -->
-
-        <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
-          date=date
-          section-name="Rotation D"
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[3], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[3]}`)
-        /> -->
-
         <!-- Sponsored by block-->
+        <!-- @ToDo add nativeX slot -->
         <common-ad-wrapper-block
           date=date
-          section-name="Sponsor"
           newsletter=newsletter
           promotion-component="sponsored-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
         />
 
         <!-- Content list block (no image) -->
-        <common-content-list-block
+        <!-- <common-content-list-block
           date=date
           section-name="From the Community"
           newsletter=newsletter
@@ -187,7 +126,7 @@ $ const layout = get(req, "query.layout") || "daily";
           url-params=urlParams
           limit=2
           skip=0
-        />
+        /> -->
 
         <!-- Featured Vendor block -->
         <common-content-list-block
@@ -201,12 +140,35 @@ $ const layout = get(req, "query.layout") || "daily";
           skip=0
         />
 
+        <!-- Facility of the Week block -->
+        <common-content-list-block
+          date=date
+          section-name="Facility of the Week"
+          newsletter=newsletter
+          with-image=true
+          image-position='top'
+          with-header=true
+          limit=1
+          skip=0
+        />
+
         <!-- Magazine Cover block -->
         <common-content-magazine-block
           date=date
           section-name="Magazine"
           publication-id=publicationId
           newsletter=newsletter
+        />
+
+        <!--Lead story block-->
+        <common-content-list-block
+          date=date
+          section-name="Featured"
+          newsletter=newsletter
+          with-image=true
+          image-position='top'
+          url-params=urlParams
+          limit=1
         />
 
         <!-- Content Partners block -->
@@ -218,48 +180,6 @@ $ const layout = get(req, "query.layout") || "daily";
           limit=24
         />
 
-        <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
-          date=date
-          section-name="Rotation E"
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[4], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[4]}`)
-        /> -->
-
-        <!-- Content list block (with image) -->
-        <!-- <common-content-list-block
-          date=date
-          section-name="Main"
-          newsletter=newsletter
-          with-image=true
-          image-position='top'
-          continue-reading=continueReading
-          url-params=urlParams
-          limit=1
-          skip=6
-        /> -->
-
-        <!-- Featured Resources block -->
-        <!-- <common-content-list-block
-          date=date
-          section-name="Featured Resources"
-          newsletter=newsletter
-          with-image=false
-          with-header=true
-          limit=3
-          skip=0
-        /> -->
-
-        <!-- Advertisement / Promotion block -->
-        <!-- <common-ad-wrapper-block
-          date=date
-          section-name="Featured Resources"
-          newsletter=newsletter
-          promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.featured-resources`)
-        /> -->
       </@body>
     </common-body-wrapper-block>
   </@body>
