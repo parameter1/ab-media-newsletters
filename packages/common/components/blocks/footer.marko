@@ -47,7 +47,7 @@ $ const taglineStyle = {
       <tr>
         <td align="center" valign="top">
           <table role="presentation" width="610" border="0" align="center"  cellpadding="0" cellspacing="0" class="wrap003">
-            <common-table-spacer-element height="18" />
+            <common-table-spacer-element height="20" />
             <tr>
               <td align="center" valign="top">
                 <common-logo-element newsletter=newsletter alt=publicationName />
@@ -84,14 +84,9 @@ $ const taglineStyle = {
                   </table>
                 </td>
               </tr>
-              <common-table-spacer-element height="16" />
+              <common-table-spacer-element height="20" />
             </if>
 
-            <tr>
-              <td align="left" valign="top" style=standardStyle>
-                Sign up
-              </td>
-            </tr>
             <tr>
               <td align="left" valign="top" style=standardStyle>
                 Did someone forward you this email?
@@ -100,7 +95,7 @@ $ const taglineStyle = {
                 </a>
               </td>
             </tr>
-            <common-table-spacer-element height="21" />
+            <common-table-spacer-element height="20" />
 
             $ const contactLinks = getAsArray(newsletterConfig, "contactLinks");
             <if(contactLinks.length)>
@@ -121,16 +116,15 @@ $ const taglineStyle = {
                   </for>
                 </td>
               </tr>
-              <common-table-spacer-element height="21" />
+              <common-table-spacer-element height="20" />
             </if>
 
             <tr>
               <td align="left" valign="top" style=smallerStyle>
-                You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.<br/>
-                This e-newsletter is intended to provide athletics, fitness and recreation professionals with relevant, timely and fast-reading nationwide stories within our industry.
+                You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.
               </td>
             </tr>
-            <common-table-spacer-element height="19" />
+            <common-table-spacer-element height="20" />
             <tr>
               <td align="left" valign="top" style=smallerStyle>
                 <a href="@{confirmunsubscribelink}@" style=smallerUnderlineStyle>Unsubscribe</a>
@@ -138,7 +132,7 @@ $ const taglineStyle = {
                 | <a href="@{forwardtoafriendlink}@" style=smallerUnderlineStyle>Forward to a Colleague</a>
               </td>
             </tr>
-            <common-table-spacer-element height="19" />
+            <common-table-spacer-element height="20" />
             <tr>
               <td align="left" valign="top" style=smallerStyle>
                 <strong>AB Media Inc.</strong><br/>
@@ -146,7 +140,7 @@ $ const taglineStyle = {
                 &copy; ${(new Date()).getFullYear()} | <a href=get(newsletterConfig, "privacyPolicyLink") style=smallerUnderlineStyle>Privacy Policy</a>
               </td>
             </tr>
-            <common-table-spacer-element height="22" />
+            <common-table-spacer-element height="20" />
           </table>
         </td>
       </tr>

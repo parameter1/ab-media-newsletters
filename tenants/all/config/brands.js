@@ -7,7 +7,6 @@ module.exports = {
     privacyPolicyLink: 'https://www.athleticbusiness.com/page/privacy-policy',
     magazineSubscription: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land',
     publicationId: '615602b1da01648223320698',
-    bgColor: '',
     socialMedia: {
       imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
@@ -27,7 +26,6 @@ module.exports = {
     privacyPolicyLink: '',
     magazineSubscription: '',
     publicationId: '6156026eda016482232f7b11',
-    bgColor: '',
     socialMedia: {
       imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
@@ -45,7 +43,6 @@ module.exports = {
     privacyPolicyLink: '',
     magazineSubscription: '',
     publicationId: '61560280da016482233042ea',
-    bgColor: '',
     socialMedia: {
       imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
