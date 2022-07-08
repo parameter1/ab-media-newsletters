@@ -10,14 +10,18 @@ const config = {
       enabled: true,
     },
   },
+  // Option #2 for header is to comment out 'name' //
   'athletic-business-today': {
-    // Option #2 for header is to comment out 'name' //
     name: 'Athletic Business Today',
     ...brands.ab,
   },
-  'wfb-e-news': {
-    name: 'WFB E-News',
+  'wfb-enews': {
+    // name: 'WFB E-News',
     ...brands.wfb,
+  },
+  'aqua-today': {
+    name: 'AQUA Today',
+    ...brands.aqua,
   },
 };
 
