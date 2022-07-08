@@ -1,0 +1,157 @@
+import { get } from "@parameter1/base-cms-object-path";
+import { parseBooleanHeader } from "@parameter1/base-cms-utils";
+import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
+
+$ const { website, config, req } = out.global;
+$ const { newsletter, date, publicationId } = input.data;
+
+$ const emailX = config.get("emailX");
+$ const nativeX = config.getAsObject("nativeX");
+
+$ const withImage = parseBooleanHeader(get(req, "query.with-image"));
+$ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"));
+
+$ const utmTerm = get(req, "query.utm_term");
+$ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-head-block />
+  </@head>
+  <@body style="padding:0; margin:0;font-family: 'Roboto', Arial, sans-serif; -webkit-text-size-adjust:100%;">
+    <common-body-wrapper-block newsletter=newsletter date=date>
+      <@body>
+
+        <!-- Content list block (with image)-->
+        <common-content-list-block
+          date=date
+          section-name="Main"
+          newsletter=newsletter
+          with-image=true
+          image-position='top'
+          continue-reading=continueReading
+          url-params=urlParams
+          limit=1
+          skip=0
+        />
+
+        <!-- Advertisement / Promotion block -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+        />
+
+        <!-- Content list block (no image)-->
+        <common-content-list-block
+          date=date
+          section-name="Main"
+          newsletter=newsletter
+          with-image=withImage
+          image-position='right'
+          continue-reading=continueReading
+          url-params=urlParams
+          limit=2
+          skip=1
+        />
+
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
+        />
+
+        <!-- Community News -->
+        <common-content-list-block
+          date=date
+          section-name="Community News"
+          newsletter=newsletter
+          with-header=true
+          continue-reading=true
+          url-params=urlParams
+          limit=6
+          skip=0
+        />
+
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+        />
+
+        <!-- Content list block (no image) -->
+        <common-content-list-block
+          date=date
+          section-name="Main"
+          newsletter=newsletter
+          with-image=withImage
+          image-position='top'
+          continue-reading=continueReading
+          url-params=urlParams
+          limit=3
+          skip=5
+        />
+
+        <!-- Related Stories -->
+        <common-content-list-block
+          date=date
+          section-name="Related Stories"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-header=true
+          limit=3
+          skip=0
+        />
+
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
+        />
+
+        <!-- New Products block -->
+        <common-content-list-block
+          date=date
+          section-name="New Products"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-header=true
+          limit=3
+          skip=0
+        />
+
+        <!-- Magazine Cover block -->
+        <common-content-magazine-block
+          date=date
+          section-name="Magazine"
+          publication-id=publicationId
+          newsletter=newsletter
+        />
+
+        <!-- Content Partners block -->
+        <common-content-partners-block
+          date=date
+          section-name="Partners"
+          newsletter=newsletter
+          with-image=true
+          limit=24
+        />
+
+      </@body>
+    </common-body-wrapper-block>
+  </@body>
+</marko-newsletter-root>
+<!-- </else> -->
