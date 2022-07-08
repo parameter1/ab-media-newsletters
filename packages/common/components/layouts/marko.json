@@ -1,17 +1,11 @@
 {
-  "<common-daily-layout>": {
-    "template": "./daily.marko"
+  "<common-ab-daily-layout>": {
+    "template": "./ab-daily.marko"
   },
-  "<common-daily-2-layout>": {
-    "template": "./daily-2.marko"
+  "<common-wfb-daily-layout>": {
+    "template": "./wfb-daily.marko"
   },
-  "<common-breaking-news-layout>": {
-    "template": "./breaking-news.marko"
-  },
-  "<common-products-layout>": {
-    "template": "./products.marko"
-  },
-  "<common-weekly-layout>": {
-    "template": "./weekly.marko"
+  "<common-aqua-daily-layout>": {
+    "template": "./aqua-daily.marko"
   }
 }
