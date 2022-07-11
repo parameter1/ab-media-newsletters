@@ -32,7 +32,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           section-name="Main"
           newsletter=newsletter
           with-image=true
-          image-position='right'
+          image-position='top'
           continue-reading=continueReading
           url-params=urlParams
           limit=1
@@ -44,7 +44,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
@@ -57,39 +56,36 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           image-position='right'
           continue-reading=continueReading
           url-params=urlParams
-          limit=1
+          limit=2
           skip=1
         />
 
-        <!-- Sponsored by block-->
-        <!-- @ToDo add nativeX slot -->
+        <!-- Advertisement / Sponsored block-->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="sponsored-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
-        <!-- Content list block (no image) -->
+        <!-- Community News -->
         <common-content-list-block
           date=date
-          section-name="Main"
+          section-name="Community News"
           newsletter=newsletter
-          with-image=withImage
-          image-position='right'
+          with-header=true
           continue-reading=true
           url-params=urlParams
-          limit=2
-          skip=2
+          limit=6
+          skip=0
         />
 
-        <!-- Sponsored by block-->
-        <!-- @ToDo add nativeX slot -->
+        <!-- Advertisement / Sponsored block-->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="sponsored-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
         />
 
         <!-- Content list block (no image) -->
@@ -98,57 +94,42 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           section-name="Main"
           newsletter=newsletter
           with-image=withImage
-          image-position='right'
+          image-position='top'
           continue-reading=continueReading
           url-params=urlParams
-          limit=2
-          skip=4
+          limit=3
+          skip=5
         />
 
-        <!-- Sponsored by block-->
-        <!-- @ToDo add nativeX slot -->
+        <!-- Related Stories -->
+        <common-content-list-block
+          date=date
+          section-name="Related Stories"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-header=true
+          limit=3
+          skip=0
+        />
+
+        <!-- Advertisement / Sponsored block-->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="sponsored-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
         />
 
-        <!-- Content list block (no image) -->
-        <!-- <common-content-list-block
-          date=date
-          section-name="From the Community"
-          newsletter=newsletter
-          with-header=true
-          with-image=withImage
-          image-position='right'
-          continue-reading=continueReading
-          url-params=urlParams
-          limit=2
-          skip=0
-        /> -->
-
-        <!-- Featured Vendor block -->
+        <!-- New Products block -->
         <common-content-list-block
           date=date
-          section-name="Featured Vendor"
+          section-name="New Products"
           newsletter=newsletter
           with-image=true
           image-position='right'
           with-header=true
-          limit=1
-          skip=0
-        />
-
-        <!-- Facility of the Week block -->
-        <common-content-list-block
-          date=date
-          section-name="Facility of the Week"
-          newsletter=newsletter
-          with-image=true
-          image-position='top'
-          with-header=true
-          limit=1
+          limit=3
           skip=0
         />
 
@@ -158,17 +139,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           section-name="Magazine"
           publication-id=publicationId
           newsletter=newsletter
-        />
-
-        <!--Lead story block-->
-        <common-content-list-block
-          date=date
-          section-name="Featured"
-          newsletter=newsletter
-          with-image=true
-          image-position='top'
-          url-params=urlParams
-          limit=1
         />
 
         <!-- Content Partners block -->
@@ -184,4 +154,3 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
     </common-body-wrapper-block>
   </@body>
 </marko-newsletter-root>
-<!-- </else> -->

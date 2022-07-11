@@ -1,18 +1,12 @@
 import { get } from "@parameter1/base-cms-object-path";
 import { parseBooleanHeader } from "@parameter1/base-cms-utils";
 import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
-import rotateArray from "@ab-media/package-common/utils/rotate-array";
-import moment from "moment";
 
 $ const { website, config, req } = out.global;
-$ const { newsletter, date } = input.data;
+$ const { newsletter, date, publicationId } = input.data;
 
 $ const emailX = config.get("emailX");
 $ const nativeX = config.getAsObject("nativeX");
-
-$ const weekOfYear = moment(new Date(date)).week();
-$ const adUnits = ["rotation-a", "rotation-d", "rotation-c", "rotation-b"];
-$ const adSlots = rotateArray(adUnits, weekOfYear - 1);
 
 $ const withImage = parseBooleanHeader(get(req, "query.with-image"));
 $ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"));
@@ -31,68 +25,29 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
   <@body style="padding:0; margin:0;font-family: 'Roboto', Arial, sans-serif; -webkit-text-size-adjust:100%;">
     <common-body-wrapper-block newsletter=newsletter date=date>
       <@body>
-        <!-- Announcement block -->
-        <common-content-background-block
-          date=date
-          section-name="Announcement"
-          newsletter=newsletter
-        />
 
-        <!-- Sponsored by block-->
-        <common-ad-wrapper-block
-          date=date
-          section-name="Sponsor"
-          newsletter=newsletter
-          promotion-component="sponsored-block"
-          ad-unit=emailX.getAdUnit({ name: "sponsor", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.sponsor`)
-        />
-
-        <!--Lead story block-->
-        <common-content-list-block
-          date=date
-          section-name="Top Story"
-          newsletter=newsletter
-          with-image=true
-          image-position="top"
-          url-params=urlParams
-          limit=1
-        />
-
-        <!-- Advertisement / Promotion block -->
-        <common-ad-wrapper-block
-          date=date
-          section-name="Rotation A"
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[0], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[0]}`)
-        />
-
-        <!-- Content list block (no image) -->
+        <!-- Content list block (with image)-->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
-          image-position='right'
+          with-image=true
+          image-position='top'
           continue-reading=continueReading
           url-params=urlParams
-          limit=2
+          limit=1
           skip=0
         />
 
         <!-- Advertisement / Promotion block -->
         <common-ad-wrapper-block
           date=date
-          section-name="Rotation B"
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[1], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[1]}`)
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
-        <!-- Content list block (no image) -->
+        <!-- Content list block (no image)-->
         <common-content-list-block
           date=date
           section-name="Main"
@@ -102,17 +57,15 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           continue-reading=continueReading
           url-params=urlParams
           limit=2
-          skip=2
+          skip=1
         />
 
-        <!-- Advertisement / Promotion block -->
+        <!-- Advertisement / Sponsored block-->
         <common-ad-wrapper-block
           date=date
-          section-name="Rotation C"
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[2], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[2]}`)
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
         <!-- Content list block (no image) -->
@@ -122,27 +75,18 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           with-image=withImage
           image-position='right'
-          continue-reading=continueReading
+          continue-reading=true
           url-params=urlParams
-          limit=1
-          skip=4
+          limit=2
+          skip=3
         />
 
-        <!-- Data snapshot block -->
-        <common-content-background-block
-          date=date
-          section-name="Data Snapshot"
-          newsletter=newsletter
-        />
-
-        <!-- Advertisement / Promotion block -->
+        <!-- Advertisement / Sponsored block-->
         <common-ad-wrapper-block
           date=date
-          section-name="Rotation D"
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: adSlots[3], alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.${adSlots[3]}`)
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
         />
 
         <!-- Content list block (no image) -->
@@ -158,38 +102,67 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=5
         />
 
-        <!-- Content list block (with image) -->
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
+        />
+
+        <!-- What's Trending block -->
         <common-content-list-block
           date=date
-          section-name="Main"
+          section-name="What's Trending"
           newsletter=newsletter
           with-image=true
           image-position='top'
-          continue-reading=continueReading
-          url-params=urlParams
+          with-header=true
           limit=1
-          skip=6
+          skip=0
         />
 
-        <!-- Featured Resources block -->
+        <!-- Editor's Pick block -->
         <common-content-list-block
           date=date
-          section-name="Featured Resources"
+          section-name="Editor's Pick"
           newsletter=newsletter
-          with-image=false
+          with-image=true
+          image-position='top'
+          with-header=true
+          limit=1
+          skip=0
+        />
+
+        <!-- New Products block -->
+        <common-content-list-block
+          date=date
+          section-name="New Products"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
           with-header=true
           limit=3
           skip=0
         />
 
-        <!-- Advertisement / Promotion block -->
-        <common-ad-wrapper-block
+        <!-- Magazine Cover block -->
+        <common-content-magazine-block
           date=date
-          section-name="Featured Resources"
+          section-name="Magazine"
+          publication-id=publicationId
           newsletter=newsletter
-          promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.featured-resources`)
         />
+
+        <!-- Content Partners block -->
+        <common-content-partners-block
+          date=date
+          section-name="Partners"
+          newsletter=newsletter
+          with-image=true
+          limit=24
+        />
+
       </@body>
     </common-body-wrapper-block>
   </@body>
