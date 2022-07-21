@@ -44,38 +44,44 @@ $ const buttonStyle = {
 >
   <tr>
     <td align="center" valign="top">
-      <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+      <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
         <tr>
-          <td align="center" valign="top" >
-            <common-list-header-element title="Subscribe" />
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top">
-      <table role="presentation" width="100%" border="0" align="left"  cellpadding="0" cellspacing="0">
-        <tr>
-          <td align="left" style="padding-left: 15px">
-            <marko-core-obj-value|{ value: coverImage }| obj=latestIssue field="coverImage" as="object">
-              <marko-newsletter-imgix
-                src=coverImage.src
-                alt=coverImage.alt
-                attrs={ border: 0, width: 150 }
-              >
-                <@link href=latestIssue.digitalEditionUrl target="_blank" />
-              </marko-newsletter-imgix>
-            </marko-core-obj-value>
-          </td>
-          <td valign="top">
-            <table>
-              <common-content-magazine-item-block date=date newsletter=newsletter />
+          <td align="center" valign="top">
+            <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" valign="top" >
+                  <common-list-header-element title="Subscribe" />
+                </td>
+              </tr>
             </table>
           </td>
         </tr>
+        <tr>
+          <td align="center" valign="top">
+            <table role="presentation" width="100%" border="0" align="left"  cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="left" style="padding-left: 15px">
+                  <marko-core-obj-value|{ value: coverImage }| obj=latestIssue field="coverImage" as="object">
+                    <marko-newsletter-imgix
+                      src=coverImage.src
+                      alt=coverImage.alt
+                      attrs={ border: 0, width: 150 }
+                    >
+                      <@link href=latestIssue.digitalEditionUrl target="_blank" />
+                    </marko-newsletter-imgix>
+                  </marko-core-obj-value>
+                </td>
+                <td valign="top">
+                  <table>
+                    <common-content-magazine-item-block date=date newsletter=newsletter />
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-spacer-element height="32" />
       </table>
     </td>
   </tr>
-  <common-table-spacer-element height="32" />
 </marko-web-query>
