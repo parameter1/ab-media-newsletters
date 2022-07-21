@@ -10,6 +10,7 @@ $ const withHeader = defaultValue(input.withHeader, false);
 $ const withSection = defaultValue(input.withSection, true);
 $ const continueReading = defaultValue(input.continueReading, false);
 $ const urlParams = defaultValue(input.urlParams, false);
+$ const withTeaser = defaultValue(input.withTeaser, true);
 
 $ const queryParams = {
   date: date.valueOf(),
@@ -33,6 +34,7 @@ $ const queryParams = {
         image-position=imagePosition
         continue-reading=continueReading
         url-params=urlParams
+        with-teaser=withTeaser
       />
     </for>
   </if>

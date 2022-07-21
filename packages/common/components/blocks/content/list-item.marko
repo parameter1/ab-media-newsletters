@@ -8,6 +8,7 @@ $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
 $ const withSection = defaultValue(input.withSection, true);
 $ const continueReading = defaultValue(input.continueReading, false);
+$ const withTeaser = defaultValue(input.withTeaser, true);
 
 $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLSearchParams(urlParams)}` : "";
 $ const contentUrl = `${content.siteContext.url}${queryString}`
@@ -96,11 +97,13 @@ $ const sponsoredTagStyle = {
                       <td>
                         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="hide_on_mobile">
                           <common-table-spacer-element height="5" />
-                          <tr>
-                            <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-                              ${content.teaser}
-                            </td>
-                          </tr>
+                          <if(withTeaser)>
+                            <tr>
+                              <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
+                                ${content.teaser}
+                              </td>
+                            </tr>
+                          </if>
                           <if(continueReading)>
                             <common-table-spacer-element height="9" />
                             <common-cta-element link-url=contentUrl />
@@ -131,11 +134,13 @@ $ const sponsoredTagStyle = {
           <td align="left" valign="top" class="show_on_mobile" style="display: none;mso-hide: all;">
             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="mso-hide: all;">
               <common-table-spacer-element height="10" />
-              <tr>
-                <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-                  ${content.teaser}
-                </td>
-              </tr>
+              <if(withTeaser)>
+                <tr>
+                  <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
+                    ${content.teaser}
+                  </td>
+                </tr>
+              </if>
               <if(continueReading)>
                 <common-table-spacer-element height="9" />
                 <common-cta-element link-url=contentUrl />
@@ -153,11 +158,13 @@ $ const sponsoredTagStyle = {
           </td>
         </tr>
         <common-table-spacer-element height="5" />
-        <tr>
-          <td align="left" valign="middle" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-            ${content.teaser}
-          </td>
-        </tr>
+        <if(withTeaser)>
+          <tr>
+            <td align="left" valign="middle" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
+              ${content.teaser}
+            </td>
+          </tr>
+        </if>
         <if(continueReading)>
           <common-table-spacer-element height="9" />
           <common-cta-element link-url=contentUrl />
