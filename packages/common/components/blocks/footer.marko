@@ -41,105 +41,106 @@ $ const taglineStyle = {
   "padding-top": "5px",
 }
 
+
 <tr>
   <td align="center" valign="top">
-    <table role="presentation" width="100%" border="0" bgcolor="#2f3031" align="center"  cellpadding="0" cellspacing="0">
+    <table role="presentation" width="610" border="0" align="center"  cellpadding="0" cellspacing="0" class="wrap003">
       <tr>
         <td align="center" valign="top">
-          <table role="presentation" width="610" border="0" align="center"  cellpadding="0" cellspacing="0" class="wrap003">
+          <table role="presentation" width="100%" border="0" bgcolor="#2f3031" align="center"  cellpadding="0" cellspacing="0">
             <common-table-spacer-element height="20" />
-            <tr>
-              <td align="center" valign="top">
-                <common-logo-element newsletter=newsletter alt=publicationName />
-              </td>
-            </tr>
-            <if(tagline)>
               <tr>
-                <td align="center" valign="top" style=taglineStyle>${tagline}</td>
+                <td align="center" valign="top">
+                  <common-logo-element newsletter=newsletter alt=publicationName />
+                </td>
               </tr>
-            </if>
-            <common-table-spacer-element height="20" />
+              <if(tagline)>
+                <tr>
+                  <td align="center" valign="top" style=taglineStyle>${tagline}</td>
+                </tr>
+              </if>
+              <common-table-spacer-element height="20" />
 
-            $ const socialMedia = get(newsletterConfig, "socialMedia");
-            $ const socialMediaLinks = getAsArray(socialMedia, "links");
-            <if(socialMediaLinks.length)>
+              $ const socialMedia = get(newsletterConfig, "socialMedia");
+              $ const socialMediaLinks = getAsArray(socialMedia, "links");
+              <if(socialMediaLinks.length)>
+                <tr>
+                  <td align="center" valign="top" >
+                    <table role="presentation" width="200" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <for|link| of=socialMediaLinks>
+                          <td align="center" valign="middle" style="padding: 0 10px;">
+                            <marko-newsletter-imgix
+                              src=`${socialMedia.imagePath}/${link.provider}.png`
+                              alt=link.provider
+                              options={ w: 32, h: 32, fit: "crop" }
+                              class="img_resize1"
+                              attrs={ border: 0, width: 32, align: "center" }
+                            >
+                              <@link href=link.href target="_blank" />
+                            </marko-newsletter-imgix>
+                          </td>
+                        </for>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <common-table-spacer-element height="20" />
+              </if>
+
               <tr>
-                <td align="center" valign="top" >
-                  <table role="presentation" width="200" border="0" align="center" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <for|link| of=socialMediaLinks>
-                        <td align="center" valign="middle" style="padding: 0 10px;">
-                          <marko-newsletter-imgix
-                            src=`${socialMedia.imagePath}/${link.provider}.png`
-                            alt=link.provider
-                            options={ w: 32, h: 32, fit: "crop" }
-                            class="img_resize1"
-                            attrs={ border: 0, width: 32, align: "center" }
-                          >
-                            <@link href=link.href target="_blank" />
-                          </marko-newsletter-imgix>
-                        </td>
-                      </for>
-                    </tr>
-                  </table>
+                <td align="left" valign="top" style=standardStyle>
+                  Did someone forward you this email?
+                  <a href=subscribeLink style=standardUnderlineStyle>
+                    Subscribe to This Newsletter
+                  </a>
                 </td>
               </tr>
               <common-table-spacer-element height="20" />
-            </if>
 
-            <tr>
-              <td align="left" valign="top" style=standardStyle>
-                Did someone forward you this email?
-                <a href=subscribeLink style=standardUnderlineStyle>
-                  Subscribe to This Newsletter
-                </a>
-              </td>
-            </tr>
-            <common-table-spacer-element height="20" />
+              $ const contactLinks = getAsArray(newsletterConfig, "contactLinks");
+              <if(contactLinks.length)>
+                <tr>
+                  <td align="left" valign="top" style=standardStyle>
+                    Contact
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top" style=standardStyle>
+                    <for|link, index| of=contactLinks>
+                      <a href=link.href style=standardUnderlineStyle>
+                        ${link.label}
+                      </a>
+                      <if(index < (contactLinks.length - 1))>
+                        <span style="padding: 0 10px;">|</span>
+                      </if>
+                    </for>
+                  </td>
+                </tr>
+                <common-table-spacer-element height="20" />
+              </if>
 
-            $ const contactLinks = getAsArray(newsletterConfig, "contactLinks");
-            <if(contactLinks.length)>
               <tr>
-                <td align="left" valign="top" style=standardStyle>
-                  Contact
-                </td>
-              </tr>
-              <tr>
-                <td align="left" valign="top" style=standardStyle>
-                  <for|link, index| of=contactLinks>
-                    <a href=link.href style=standardUnderlineStyle>
-                      ${link.label}
-                    </a>
-                    <if(index < (contactLinks.length - 1))>
-                      <span style="padding: 0 10px;">|</span>
-                    </if>
-                  </for>
+                <td align="left" valign="top" style=smallerStyle>
+                  You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.
                 </td>
               </tr>
               <common-table-spacer-element height="20" />
-            </if>
-
-            <tr>
-              <td align="left" valign="top" style=smallerStyle>
-                You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.
-              </td>
-            </tr>
-            <common-table-spacer-element height="20" />
-            <tr>
-              <td align="left" valign="top" style=smallerStyle>
-                <a href="@{confirmunsubscribelink}@" style=smallerUnderlineStyle>Unsubscribe</a>
-                | <a href=get(newsletterConfig, "magazineSubscription") style=smallerUnderlineStyle>Start/Renew Magazine Subscription</a>
-                | <a href="@{forwardtoafriendlink}@" style=smallerUnderlineStyle>Forward to a Colleague</a>
-              </td>
-            </tr>
-            <common-table-spacer-element height="20" />
-            <tr>
-              <td align="left" valign="top" style=smallerStyle>
-                <strong>AB Media Inc.</strong><br/>
-                22 E. Mifflin St., Ste. 910, Madison, WI 53703<br/>
-                &copy; ${(new Date()).getFullYear()} | <a href=get(newsletterConfig, "privacyPolicyLink") style=smallerUnderlineStyle>Privacy Policy</a>
-              </td>
-            </tr>
+              <tr>
+                <td align="left" valign="top" style=smallerStyle>
+                  <a href="@{confirmunsubscribelink}@" style=smallerUnderlineStyle>Unsubscribe</a>
+                  | <a href=get(newsletterConfig, "magazineSubscription") style=smallerUnderlineStyle>Start/Renew Magazine Subscription</a>
+                  | <a href="@{forwardtoafriendlink}@" style=smallerUnderlineStyle>Forward to a Colleague</a>
+                </td>
+              </tr>
+              <common-table-spacer-element height="20" />
+              <tr>
+                <td align="left" valign="top" style=smallerStyle>
+                  <strong>AB Media Inc.</strong><br/>
+                  22 E. Mifflin St., Ste. 910, Madison, WI 53703<br/>
+                  &copy; ${(new Date()).getFullYear()} | <a href=get(newsletterConfig, "privacyPolicyLink") style=smallerUnderlineStyle>Privacy Policy</a>
+                </td>
+              </tr>
             <common-table-spacer-element height="20" />
           </table>
         </td>
