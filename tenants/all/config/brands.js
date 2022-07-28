@@ -1,7 +1,10 @@
 module.exports = {
   ab: {
     brandName: 'Athletic Business',
-    logoSrc: '/files/base/abmedia/all/image/static/ab-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/ab-site-logo.png',
+      headerWidth: 130,
+    },
     advertiseLink: 'https://www.athleticbusiness.info/',
     contactUsLink: 'https://www.athleticbusiness.com/page/contact-us',
     privacyPolicyLink: 'https://www.athleticbusiness.com/page/privacy-policy',
@@ -20,7 +23,10 @@ module.exports = {
   },
   aqua: {
     brandName: 'Aqua',
-    logoSrc: '/files/base/abmedia/all/image/static/aqua-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/aqua-site-logo.png',
+      headerWidth: 130,
+    },
     advertiseLink: 'https://info.aquamagazine.com/',
     contactUsLink: '',
     privacyPolicyLink: '',
@@ -38,14 +44,17 @@ module.exports = {
   },
   wfb: {
     brandName: 'Wood Floor Business',
-    logoSrc: '/files/base/abmedia/all/image/static/wfb-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/wfb-site-logo.png',
+      footerWidth: 180,
+    },
     advertiseLink: 'https://info.woodfloorbusiness.com/',
     contactUsLink: '',
     privacyPolicyLink: '',
     magazineSubscription: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land',
     publicationId: '61560280da016482233042ea',
     socialMedia: {
-      imagePath: '/files/base/abmedia/all/image/static/newsletter/wfb',
+      imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
         { provider: 'facebook', href: 'https://www.facebook.com/WoodFloorBusiness', target: '_blank' },
         { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
