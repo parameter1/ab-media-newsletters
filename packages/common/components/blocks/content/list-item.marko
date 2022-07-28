@@ -16,7 +16,7 @@ $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLS
 $ const contentUrl = `${content.siteContext.url}${queryString}`
 
 $ const newsletterConfig = config.get(newsletter.alias);
-$ const primaryColor = get(newsletterConfig, "primaryColor");
+$ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
 $ const imgStyles = {
   "border": 0,
