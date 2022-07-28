@@ -6,10 +6,11 @@ $ const { newsletter, date } = input;
 
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const name = (newsletterConfig.name || newsletter.name);
-$ const logoSrc = newsletterConfig.logoSrc;
+$ const logoSrc = newsletterConfig.logo.src;
 $ const alt = defaultValue(input.alt, newsletter.name);
+$ const logoWidth = newsletterConfig.logo.headerWidth;
 
-<if(newsletterConfig.name)>
+<if(logoWidth)>
   <tr>
     <td align="center" valign="top" bgcolor="#2f3031">
       <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -20,7 +21,7 @@ $ const alt = defaultValue(input.alt, newsletter.name);
               <tr>
                 <td align="left" valign="top" width="15"></td>
                 <td align="left" valign="top" width="130" style="padding-top: 5px">
-                  <common-logo-element newsletter=newsletter />
+                  <common-logo-element newsletter=newsletter width=logoWidth />
                 </td>
                 <td align="left" valign="top" width="24"></td>
                 <td align="left" valign="middle" style="font-size: 26px;line-height: 40px;color: #ffffff;font-weight: 700;" class="font1">
@@ -45,9 +46,7 @@ $ const alt = defaultValue(input.alt, newsletter.name);
             <table role="presentation" width="610" border="0" cellspacing="0" cellpadding="0" class="wrap003">
               <tr>
                 <td align="center" valign="top">
-                  <marko-newsletter-imgix src=logoSrc alt=alt options={ w: 600 }>
-                    <@link href=website.get("origin") target="_blank" />
-                  </marko-newsletter-imgix>
+                 <common-logo-element newsletter=newsletter width=600 />
                 </td>
               </tr>
             </table>

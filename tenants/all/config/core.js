@@ -10,18 +10,18 @@ const config = {
       enabled: true,
     },
   },
-  // Option #2 for header is to comment out 'name' //
   'athletic-business-today': {
-    name: 'Athletic Business Today',
     ...brands.ab,
+    name: 'Athletic Business Today',
   },
   'wfb-enews': {
-    // name: 'WFB E-News',
     ...brands.wfb,
+    name: 'WFB E-News',
+    primaryColor: '#7cc242',
   },
   'aqua-today': {
-    name: 'AQUA Today',
     ...brands.aqua,
+    name: 'AQUA Today',
   },
 };
 

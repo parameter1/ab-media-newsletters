@@ -2,7 +2,9 @@ import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { URLSearchParams } from "url";
 
-$ const { content, urlParams } = input;
+$ const { config } = out.global;
+
+$ const { newsletter, content, urlParams } = input;
 
 $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
@@ -12,6 +14,9 @@ $ const withTeaser = defaultValue(input.withTeaser, true);
 
 $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLSearchParams(urlParams)}` : "";
 $ const contentUrl = `${content.siteContext.url}${queryString}`
+
+$ const newsletterConfig = config.get(newsletter.alias);
+$ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
 $ const imgStyles = {
   "border": 0,
@@ -30,8 +35,9 @@ $ const imgLinkStyles = {
 
 $ const tagStyle = {
   "font-size": "14px",
+  "font-weight": "700",
   "line-height": "19px",
-  "color": "#103a57",
+  "color": primaryColor,
   "text-transform": "uppercase",
 }
 

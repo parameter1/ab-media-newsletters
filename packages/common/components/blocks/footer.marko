@@ -1,4 +1,6 @@
 import { get, getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
 $ const { website, config } = out.global;
 $ const { newsletter } = input;
 
@@ -7,11 +9,12 @@ $ const tagline = get(newsletterConfig, "tagline");
 $ const subscribeLink = get(newsletterConfig, "subscribeLink");
 $ const publicationName = website.get("name");
 $ const privacyPolicyLink = get(newsletterConfig, "privacyPolicyLink");
+$ const footerWidth = defaultValue(get(newsletterConfig, "logo.footerWidth"), 130);
 
 $ const standardStyle = {
   "font-size": "17px",
   "line-height": "22px",
-  "color": "#ffffff",
+  "color": "#000000",
   "font-family": "'Roboto', Arial, sans-serif",
   "padding": "0 15px",
 };
@@ -47,11 +50,11 @@ $ const taglineStyle = {
     <table role="presentation" width="610" border="0" align="center"  cellpadding="0" cellspacing="0" class="wrap003">
       <tr>
         <td align="center" valign="top">
-          <table role="presentation" width="100%" border="0" bgcolor="#2f3031" align="center"  cellpadding="0" cellspacing="0">
+          <table role="presentation" width="100%" border="0" bgcolor="#ededed" align="center"  cellpadding="0" cellspacing="0">
             <common-table-spacer-element height="20" />
               <tr>
                 <td align="center" valign="top">
-                  <common-logo-element newsletter=newsletter alt=publicationName />
+                  <common-logo-element newsletter=newsletter alt=publicationName width=footerWidth />
                 </td>
               </tr>
               <if(tagline)>

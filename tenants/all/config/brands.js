@@ -1,7 +1,10 @@
 module.exports = {
   ab: {
     brandName: 'Athletic Business',
-    logoSrc: '/files/base/abmedia/all/image/static/ab-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/ab-site-logo.png',
+      headerWidth: 130,
+    },
     advertiseLink: 'https://www.athleticbusiness.info/',
     contactUsLink: 'https://www.athleticbusiness.com/page/contact-us',
     privacyPolicyLink: 'https://www.athleticbusiness.com/page/privacy-policy',
@@ -20,7 +23,10 @@ module.exports = {
   },
   aqua: {
     brandName: 'Aqua',
-    logoSrc: '/files/base/abmedia/all/image/static/aqua-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/aqua-site-logo.png',
+      headerWidth: 130,
+    },
     advertiseLink: 'https://info.aquamagazine.com/',
     contactUsLink: '',
     privacyPolicyLink: '',
@@ -38,7 +44,10 @@ module.exports = {
   },
   wfb: {
     brandName: 'Wood Floor Business',
-    logoSrc: '/files/base/abmedia/all/image/static/wfb-site-logo.png',
+    logo: {
+      src: '/files/base/abmedia/all/image/static/wfb-site-logo.png',
+      footerWidth: 180,
+    },
     advertiseLink: 'https://info.woodfloorbusiness.com/',
     contactUsLink: '',
     privacyPolicyLink: '',
@@ -48,11 +57,12 @@ module.exports = {
       imagePath: '/files/base/abmedia/all/image/static/newsletter',
       links: [
         { provider: 'facebook', href: 'https://www.facebook.com/WoodFloorBusiness', target: '_blank' },
-        { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
+        { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
+        { provider: 'tiktok', href: 'https://www.tiktok.com/@woodfloorbusiness', target: '_blank' },
+        { provider: 'pinterest', href: 'https://www.pinterest.com/wfbiz/_created/', target: '_blank' },
         { provider: 'linkedin', href: 'https://www.linkedin.com/company/wood-floor-business/', target: '_blank' },
         { provider: 'youtube', href: 'https://www.youtube.com/c/WoodFloorBusiness', target: '_blank' },
-        { provider: 'pinterest', href: 'https://www.pinterest.com/wfbiz/_created/', target: '_blank' },
-        { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
+        { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
       ],
     },
   },
