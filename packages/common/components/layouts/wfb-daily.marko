@@ -9,7 +9,6 @@ $ const emailX = config.get("emailX");
 $ const nativeX = config.getAsObject("nativeX");
 
 $ const withImage = parseBooleanHeader(get(req, "query.with-image"));
-$ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"));
 
 $ const utmTerm = get(req, "query.utm_term");
 $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
