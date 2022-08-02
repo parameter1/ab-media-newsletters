@@ -8,32 +8,14 @@ $ const { date, newsletter } = input;
 
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const publicationId = get(newsletterConfig, "publicationId");
+$ const subscribeText = get(newsletterConfig, "subscribeText");
+$ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
-$ const sectionStyle = {
-  "font-size": "15px",
-  "color": "#000000",
-  "text-decoration": "none",
-  "display": "inline-block",
-  "font-weight": "700",
-  "font-family": "'Roboto', Arial, snans-serif",
-  "text-transform": "uppercase",
-  "padding": "0 24px",
-};
-
-$ const buttonStyle = {
-  "background-color": "#436daa",
-  "border": "none",
-  "border-radius": "4px",
-  "color": "#ffffff",
-  "display": "inline-block",
-  "letter-spacing": ".8px",
-  "line-height": "1.25",
-  "text-align": "center",
-  "text-transform": "uppercase",
-  "font-weight": "700",
-  "font-size": "12px",
-  "padding": "12px",
-};
+$ const subscribeStyle = {
+  "color": primaryColor,
+  "font-size": "24px",
+  "padding-left": "15px",
+}
 
 <marko-web-query|{ node: latestIssue }|
   name="magazine-latest-issue"
@@ -71,10 +53,10 @@ $ const buttonStyle = {
                     </marko-newsletter-imgix>
                   </marko-core-obj-value>
                 </td>
-                <td valign="top">
-                  <table>
-                    <common-content-magazine-item-block date=date newsletter=newsletter />
-                  </table>
+                <td align="center" valign="center">
+                  <div style=subscribeStyle>
+                    ${subscribeText}
+                  </div>
                 </td>
               </tr>
             </table>
