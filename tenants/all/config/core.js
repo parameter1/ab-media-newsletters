@@ -18,6 +18,7 @@ const config = {
     ...brands.wfb,
     name: 'WFB E-News',
     primaryColor: '#7cc242',
+    subscribeText: 'Subscribe to WFB--free to qualified wood flooring pros.',
   },
   'aqua-today': {
     ...brands.aqua,
