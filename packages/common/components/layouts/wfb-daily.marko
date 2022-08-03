@@ -44,6 +44,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
@@ -65,6 +66,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
@@ -73,7 +75,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
           continue-reading=true
           url-params=urlParams
@@ -86,6 +88,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
         />
 
@@ -94,7 +97,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
           continue-reading=true
           url-params=urlParams
@@ -107,6 +110,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
         />
 
@@ -132,7 +136,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           image-position='top'
           continue-reading=true
           with-header=true
-          with-teaser=false
+          with-teaser=true
           limit=1
           skip=0
         />

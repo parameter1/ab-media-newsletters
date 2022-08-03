@@ -16,8 +16,5 @@
   },
   "<common-content-magazine-block>": {
     "template": "./magazine.marko"
-  },
-  "<common-content-magazine-item-block>": {
-    "template": "./magazine-item.marko"
   }
 }

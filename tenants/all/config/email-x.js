@@ -28,6 +28,72 @@ config
       width: 600,
       height: 100,
     },
+    {
+      name: 'ad-slot-5',
+      id: '62e9260cdf6984426928f535',
+      width: 600,
+      height: 100,
+    },
+  ])
+
+  .setAdUnits('wfb-enews', [
+    {
+      name: 'ad-slot-1',
+      id: '62e9263edf698479c428f564',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-2',
+      id: '62e92654df69842e5928f577',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-3',
+      id: '62e92668196d2f15fceffc3f',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-4',
+      id: '62e9267adf6984b12f28f593',
+      width: 600,
+      height: 100,
+    },
+  ])
+
+  .setAdUnits('aqua-today', [
+    {
+      name: 'ad-slot-1',
+      id: '62e926aedf69841b5e28f5d3',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-2',
+      id: '62e926bcdf6984a24a28f5e6',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-3',
+      id: '62e926ccdf6984b81d28f5f0',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-4',
+      id: '62e926dd196d2fbd42effcb7',
+      width: 600,
+      height: 100,
+    },
+    {
+      name: 'ad-slot-5',
+      id: '62e926eadf6984f73828f60c',
+      width: 600,
+      height: 100,
+    },
   ]);
 
 module.exports = config;
