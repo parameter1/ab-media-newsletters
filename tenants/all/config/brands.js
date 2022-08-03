@@ -4,6 +4,7 @@ module.exports = {
     logo: {
       src: '/files/base/abmedia/all/image/static/ab-site-logo.png',
       headerWidth: 130,
+      footerWidth: 200,
     },
     advertiseLink: 'https://www.athleticbusiness.info/',
     contactUsLink: 'https://www.athleticbusiness.com/page/contact-us',

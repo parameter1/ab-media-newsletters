@@ -13,6 +13,8 @@ const config = {
   'athletic-business-today': {
     ...brands.ab,
     name: 'Athletic Business Today',
+    primaryColor: '#1f4391',
+    subscribeText: 'Get your own subscription today!<br/><a style="color: #c42127"><em>Athletic Business</em></a> magazine is completely free to qualified professionals in the athletic, fitness and recreation industries.<br/><a style="text-decoration: none; color: #c42127" href="https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land" target="_blank">Subscribe</a> today!',
   },
   'wfb-enews': {
     ...brands.wfb,

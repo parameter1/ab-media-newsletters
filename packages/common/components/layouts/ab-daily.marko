@@ -26,17 +26,15 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
     <common-body-wrapper-block newsletter=newsletter date=date>
       <@body>
 
-        <!-- Content list block (with image)-->
+        <!--Lead story block-->
         <common-content-list-block
           date=date
-          section-name="Main"
+          section-name="Featured"
           newsletter=newsletter
           with-image=true
-          image-position='right'
-          continue-reading=continueReading
+          image-position='top'
           url-params=urlParams
           limit=1
-          skip=0
         />
 
         <!-- Advertisement / Promotion block -->
@@ -48,7 +46,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
-        <!-- Content list block (no image)-->
+        <!-- Content list block (with image)-->
         <common-content-list-block
           date=date
           section-name="Main"
@@ -56,10 +54,10 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           with-image=withImage
           image-position='right'
           continue-reading=continueReading
-          with-teaser=false
+          with-teaser=true
           url-params=urlParams
           limit=2
-          skip=1
+          skip=0
         />
 
         <!-- Advertisement / Promotional by block-->
@@ -71,17 +69,18 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
-        <!-- Content list block (no image) -->
+        <!-- Content list block (no image)-->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
-          continue-reading=true
+          continue-reading=continueReading
+          with-teaser=true
           url-params=urlParams
           limit=2
-          skip=3
+          skip=2
         />
 
         <!-- Advertisement / Promotional by block-->
@@ -98,12 +97,13 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=true
+          with-image=withImage
           image-position='right'
           continue-reading=continueReading
+          with-teaser=true
           url-params=urlParams
           limit=2
-          skip=5
+          skip=4
         />
 
         <!-- Advertisement / Promotional by block-->
@@ -153,23 +153,21 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=0
         />
 
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
+        />
+
         <!-- Magazine Cover block -->
         <common-content-magazine-block
           date=date
           section-name="Magazine"
           publication-id=publicationId
           newsletter=newsletter
-        />
-
-        <!--Lead story block-->
-        <common-content-list-block
-          date=date
-          section-name="Featured"
-          newsletter=newsletter
-          with-image=true
-          image-position='top'
-          url-params=urlParams
-          limit=1
         />
 
         <!-- Content Partners block -->
