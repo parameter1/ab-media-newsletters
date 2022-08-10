@@ -1,8 +1,8 @@
 import { get, getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const newsletter = getAsObject(input, "newsletter");
-$ const { sectionName, date, content } = input;
+$ const { sectionName, date, content, advertiser } = input;
 
 $ content.labels = ["Sponsored"];
 
-<common-content-list-item-block content=content withImage=false />
+<common-content-list-item-block newsletter=newsletter content=content withImage=true advertiser=advertiser />
