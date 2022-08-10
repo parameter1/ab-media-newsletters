@@ -4,7 +4,7 @@ import { URLSearchParams } from "url";
 
 $ const { config } = out.global;
 
-$ const { newsletter, content, urlParams } = input;
+$ const { newsletter, content, urlParams, advertiser } = input;
 
 $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
@@ -54,7 +54,19 @@ $ const sponsoredTagStyle = {
       <if(labels.includes("Sponsored"))>
         $ const tag = (content.company) ? `Sponsored Content by ${get(content, "company.name")}` : "Sponsored Content";
         <tr>
-          <td align="left" valign="top" style=sponsoredTagStyle>${tag}</td>
+          <td align="left" valign="center" style=sponsoredTagStyle>${tag}</td>
+          <td width="100">
+            <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
+              <marko-newsletter-imgix
+                src=advertiser.image.src
+                alt=advertiser.image.alt
+                options={ w: 120, h: 50,fit: "crop", auto: "format,compress" }
+                attrs={ border: 0, style: imgStyles }
+              >
+                <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles } />
+              </marko-newsletter-imgix>
+            </marko-core-obj-value>
+          </td>
         </tr>
       </if>
       <else-if(withSection)>
@@ -62,7 +74,9 @@ $ const sponsoredTagStyle = {
           <td align="left" valign="top" style=tagStyle>${get(content, "primarySection.name")}</td>
         </tr>
       </else-if>
+    </table>
 
+    <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
       <common-table-spacer-element height="6" />
 
       <if(withImage && imagePosition === 'top' && content.primaryImage)>
