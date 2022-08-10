@@ -149,6 +149,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           with-image=true
           image-position='right'
           with-header=true
+          with-teaser=true
           limit=3
           skip=0
         />
@@ -162,13 +163,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Content Partners block -->
-        <common-content-partners-block
-          date=date
-          section-name="Partners"
-          newsletter=newsletter
-          with-image=true
-          limit=24
-        />
+        <common-content-partners-wfb-block />
 
       </@body>
     </common-body-wrapper-block>
