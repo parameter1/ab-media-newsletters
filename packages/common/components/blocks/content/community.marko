@@ -1,0 +1,38 @@
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
+
+$ const { sectionName, date, newsletter } = input;
+
+$ const withHeader = defaultValue(input.withHeader, false);
+$ const withSection = defaultValue(input.withSection, true);
+$ const continueReading = defaultValue(input.continueReading, false);
+$ const urlParams = defaultValue(input.urlParams, false);
+$ const withTeaser = defaultValue(input.withTeaser, true);
+
+$ const queryParams = {
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit: input.limit || 3,
+  skip: input.skip || 0,
+  queryFragment,
+};
+
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params=queryParams>
+  <if(nodes.length)>
+    <if(withHeader)>
+      <common-list-header-element title=sectionName />
+    </if>
+    <for|content| of=nodes>
+      <common-content-community-item-block
+        content=content
+        with-section=withSection
+        continue-reading=continueReading
+        url-params=urlParams
+        with-teaser=withTeaser
+        newsletter=newsletter
+      />
+    </for>
+  </if>
+</marko-web-query>
