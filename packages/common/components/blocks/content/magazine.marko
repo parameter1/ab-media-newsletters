@@ -13,15 +13,16 @@ $ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103
 
 $ const subscribeStyle = {
   "color": primaryColor,
-  "font-size": "24px",
-  "padding-left": "15px",
+  "font-size": "20px",
 }
 
-<marko-web-query|{ node: latestIssue }|
-  name="magazine-latest-issue"
+<marko-web-query|{ nodes: issues }|
+  name="magazine-active-issues"
   params={
   publicationId: publicationId,
-  queryFragment: latestIssueFragment
+  queryFragment: latestIssueFragment,
+  requiresCoverImage: true,
+  limit: 3
   }
 >
   <tr>
@@ -40,20 +41,27 @@ $ const subscribeStyle = {
         </tr>
         <tr>
           <td align="center" valign="top">
-            <table role="presentation" width="100%" border="0" align="left"  cellpadding="0" cellspacing="0">
+            <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
               <tr>
-                <td align="left" style="padding-left: 15px">
-                  <marko-core-obj-value|{ value: coverImage }| obj=latestIssue field="coverImage" as="object">
-                    <marko-newsletter-imgix
-                      src=coverImage.src
-                      alt=coverImage.alt
-                      attrs={ border: 0, width: 150 }
-                    >
-                      <@link href=latestIssue.digitalEditionUrl target="_blank" />
-                    </marko-newsletter-imgix>
-                  </marko-core-obj-value>
-                </td>
-                <td align="center" valign="center">
+                <for|issue| of=issues>
+                  <td align="center">
+                    <marko-core-obj-value|{ value: coverImage }| obj=issue field="coverImage" as="object">
+                      <marko-newsletter-imgix
+                        src=coverImage.src
+                        alt=coverImage.alt
+                        attrs={ border: 0, width: 150 }
+                      >
+                        <@link href=issue.digitalEditionUrl target="_blank" />
+                      </marko-newsletter-imgix>
+                    </marko-core-obj-value>
+                  </td>
+                </for>
+              </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+              <common-table-spacer-element height="10" />
+              <tr>
+                <td col span="3" align="center" valign="center">
                   <div style=subscribeStyle>
                     $!{subscribeText}
                   </div>

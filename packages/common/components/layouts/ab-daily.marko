@@ -26,57 +26,46 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
     <common-body-wrapper-block newsletter=newsletter date=date>
       <@body>
 
-        <!--Lead story block-->
-        <common-content-list-block
-          date=date
-          section-name="Featured"
-          newsletter=newsletter
-          with-image=true
-          image-position='top'
-          url-params=urlParams
-          limit=1
-        />
-
-        <!-- Advertisement / Promotion block -->
+        <!--Sponsored Content -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+          promotion-component="native-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus`)
         />
 
-        <!-- Content list block (with image)-->
+        <!-- Content list block -->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
-          continue-reading=continueReading
+          with-section=false
           with-teaser=true
           url-params=urlParams
           limit=2
           skip=0
         />
 
-        <!-- Advertisement / Promotional by block-->
+        <!-- Advertisement / Promotion block -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
+
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
-        <!-- Content list block (no image)-->
+        <!-- Content list block-->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
           with-image=true
           image-position='right'
-          continue-reading=continueReading
+          with-section=false
           with-teaser=true
           url-params=urlParams
           limit=2
@@ -88,18 +77,18 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
-        <!-- Content list block (no image) -->
+        <!-- Content list block -->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
-          continue-reading=continueReading
+          with-section=false
           with-teaser=true
           url-params=urlParams
           limit=2
@@ -111,23 +100,41 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+        />
+
+        <!-- Content list block -->
+        <common-content-community-block
+          date=date
+          section-name="From the Community: Reader Comments"
+          newsletter=newsletter
+          with-header=true
+          with-section=false
+          url-params=urlParams
+          limit=3
+          skip=0
+        />
+
+        <common-content-community-block
+          date=date
+          section-name="From the Community: Most Read"
+          newsletter=newsletter
+          with-header=true
+          with-section=false
+          url-params=urlParams
+          limit=1
+          skip=0
+        />
+
+        <!-- Advertisement / Promotional by block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
         />
-
-        <!-- Content list block (no image) -->
-        <!-- <common-content-list-block
-          date=date
-          section-name="From the Community"
-          newsletter=newsletter
-          with-header=true
-          with-image=withImage
-          image-position='right'
-          continue-reading=continueReading
-          url-params=urlParams
-          limit=2
-          skip=0
-        /> -->
 
         <!-- Featured Vendor block -->
         <common-content-list-block
@@ -136,9 +143,18 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           with-image=true
           image-position='right'
+          with-section=false
           with-header=true
           limit=1
           skip=0
+        />
+
+        <!--Sponsored Content -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="native-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.facility-of-the-week`)
         />
 
         <!-- Facility of the Week block -->
@@ -148,6 +164,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           with-image=true
           image-position='top'
+          with-section=false
           with-header=true
           limit=1
           skip=0
@@ -162,6 +179,31 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
         />
 
+        <!--Digital Focus (non-sponsored) block-->
+        <common-content-list-block
+          date=date
+          section-name="Digital Focus"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-header=true
+          with-section=false
+          url-params=urlParams
+          limit=1
+        />
+
+        <!-- Industry Announcements block -->
+        <common-content-list-block
+          date=date
+          section-name="Industry Announcements"
+          newsletter=newsletter
+          with-section=false
+          with-header=true
+          with-teaser=false
+          url-params=urlParams
+          limit=3
+        />
+
         <!-- Magazine Cover block -->
         <common-content-magazine-block
           date=date
@@ -171,13 +213,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Content Partners block -->
-        <common-content-partners-block
-          date=date
-          section-name="Partners"
-          newsletter=newsletter
-          with-image=true
-          limit=24
-        />
+        <common-content-partners-ab-block />
 
       </@body>
     </common-body-wrapper-block>

@@ -1,0 +1,153 @@
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+$ const { sectionName, date, newsletter } = input;
+
+$ const withImage = defaultValue(input.withImage, false);
+$ const imagePosition = defaultValue(input.imagePosition, 'right');
+$ const withSection = defaultValue(input.withSection, true);
+$ const urlParams = defaultValue(input.urlParams, false);
+
+<tr>
+  <td align="center" valign="top">
+    <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" valign="top" >
+          <common-list-header-element title="A Special Thank You To Our Partners" />
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<common-table-spacer-element height="10" />
+<tr>
+  <td align="center" valign="top">
+    <table role="presentation" width="600" border="0" align="center"  cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/tara_logo_CMYK300dpi.615e116f0e6b3.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/HFS_LOGO_FINAL.615e133c7506c.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/12/SRSmith_logo.61ae8fa96468d.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/Viking_Capital_horiz_CMYK300dpi.615e1381e1a34.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+        </td>
+      </tr>
+      <tr>
+        <common-table-spacer-element height="10" />
+        <td>
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/LyonFinancialLogo_cmyk300.615e12b40fab8.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/Pentair_Logo_4c.615e112331d70.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2022/05/HASA_300dpi.627a9c9ec4bcf.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/Pleatco_Logo.615e141d62b2e.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+        </td>
+      </tr>
+      <common-table-spacer-element height="10" />
+      <tr>
+        <td>
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/RBcontrols_logo.615e11aaa56df.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/Fluidra_4C.615e148830432.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2022/07/HaywardWeBuildLogo_2022.62d56898e4c3b.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/12/PoolsideTech_blue_logo.61ce1fe08c8d3.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+        </td>
+      </tr>
+      <common-table-spacer-element height="10" />
+      <tr>
+        <td>
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/CovCo_Coverlon_2017.615e14574c70d.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/Intermatic_300dpi.615e12ecbbd0e.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/SpeckPumps_300dpi.615e11d7a93a1.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/AquaStar_Logo_cmyk300.615e13b9c4f09.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+        </td>
+      </tr>
+      <common-table-spacer-element height="10" />
+      <tr>
+        <td>
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2022/03/Skimmer_Logo_Horz_Blue_1000px.6230a55f46189.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/FROG_Spot.615e14c662fe3.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/12/Podium_Logo_300dpi.61ae8ea57c13f.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+          <marko-newsletter-imgix
+            src='/files/base/abmedia/all/image/2021/10/LXS_240_Oxone_Logo_300dpi.615e127c5c1cb.png'
+            options={ w: 120, h: 50, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
+            attrs={ style: 'padding-right: 15px; padding-left: 15px;' }
+          />
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<common-table-spacer-element height="32" />
