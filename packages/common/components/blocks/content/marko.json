@@ -25,5 +25,11 @@
   },
   "<common-content-community-item-block>": {
     "template": "./community-item.marko"
+  },
+  "<common-content-sharable-block>": {
+    "template": "./sharable.marko"
+  },
+  "<common-content-sharable-item-block>": {
+    "template": "./sharable-item.marko"
   }
 }

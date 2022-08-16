@@ -141,6 +141,20 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=0
         />
 
+        <!-- Content list block -->
+        <common-content-community-block
+          date=date
+          section-name="Reader Comments"
+          newsletter=newsletter
+          with-header=true
+          with-image=true
+          image-position='right'
+          with-section=false
+          url-params=urlParams
+          limit=3
+          skip=0
+        />
+
         <!-- New Products block -->
         <common-content-list-block
           date=date
@@ -151,6 +165,19 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           with-header=true
           with-teaser=true
           limit=3
+          skip=0
+        />
+
+        <!-- Sharable block -->
+        <common-content-sharable-block
+          date=date
+          section-name="Sharable"
+          newsletter=newsletter
+          with-image=true
+          image-position='top'
+          with-header=true
+          with-section=false
+          limit=1
           skip=0
         />
 
