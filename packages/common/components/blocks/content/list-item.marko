@@ -74,11 +74,8 @@ $ const sponsoredTagStyle = {
           <td align="left" valign="top" style=tagStyle>${get(content, "primarySection.name")}</td>
         </tr>
       </else-if>
-      <!-- </table> -->
 
       <if(withImage && imagePosition === 'top' && content.primaryImage)>
-      <!-- <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-        <common-table-spacer-element height="6" /> -->
         <tr>
           <td align="center" valign="top">
             <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
@@ -94,9 +91,7 @@ $ const sponsoredTagStyle = {
             </marko-core-obj-value>
           </td>
         </tr>
-      <!-- </table> -->
-      <common-table-spacer-element height="10" />
-      <!-- <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"> -->
+        <common-table-spacer-element height="10" />
         <tr>
           <td align="left" valign="top">
             <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" class="pad" style="padding: 0 30px 0px 0;">
@@ -146,12 +141,9 @@ $ const sponsoredTagStyle = {
             </table>
           </td>
         </tr>
-      <!-- </table> -->
       </if>
 
       <else-if(withImage && imagePosition === 'right' && content.primaryImage)>
-      <!-- <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-        <common-table-spacer-element height="6" /> -->
         <tr>
           <td align="center" valign="top" dir="ltr">
             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -220,10 +212,9 @@ $ const sponsoredTagStyle = {
             </table>
           </td>
         </tr>
-      <!-- </table> -->
       </else-if>
+
       <else>
-      <!-- <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003"> -->
         <tr>
           <td align="left" valign="top">
             <a style="font-size: 24px;line-height: 28px;color: #202022;font-weight: 700;text-decoration: none;" href=contentUrl>
@@ -243,7 +234,6 @@ $ const sponsoredTagStyle = {
           <common-table-spacer-element height="9" />
           <common-cta-element link-url=contentUrl />
         </if>
-      <!-- </table> -->
       </else>
       <common-table-spacer-element height="32" />
     </table>
