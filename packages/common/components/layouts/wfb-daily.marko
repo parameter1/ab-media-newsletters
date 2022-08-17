@@ -28,7 +28,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <!-- Content list block (with image)-->
         <common-content-list-block
           date=date
-          section-name="Main"
+          section-name="Top Story"
           newsletter=newsletter
           with-image=true
           image-position='top'
@@ -142,7 +142,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Content list block -->
-        <common-content-community-block
+        <common-content-list-block
           date=date
           section-name="Reader Comments"
           newsletter=newsletter
@@ -150,9 +150,23 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           with-image=true
           image-position='right'
           with-section=false
+          with-teaser=true
           url-params=urlParams
-          limit=3
+          limit=1
           skip=0
+        />
+
+        <common-content-list-block
+          date=date
+          section-name="Reader Comments"
+          newsletter=newsletter
+          with-header=false
+          with-image=false
+          with-section=false
+          with-teaser=true
+          url-params=urlParams
+          limit=4
+          skip=1
         />
 
         <!-- New Products block -->
@@ -168,10 +182,10 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=0
         />
 
-        <!-- Sharable block -->
-        <common-content-sharable-block
+        <!-- Shareable block -->
+        <common-content-shareable-block
           date=date
-          section-name="Sharable"
+          section-name="Shareable"
           newsletter=newsletter
           with-image=true
           image-position='top'
