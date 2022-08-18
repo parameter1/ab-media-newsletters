@@ -23,43 +23,46 @@ $ const subscribeStyle = {
   limit: 3
   }
 >
+  <tr>
+    <td>
+      <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
+        <common-list-header-element title="Subscribe" />
+      </table>
 
-  <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-    <common-list-header-element title="Subscribe" />
-  </table>
-
-  <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-    <tr>
-      <td align="center" valign="top">
-        <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
-          <tr>
-            <for|issue| of=issues>
-              <td align="center">
-                <marko-core-obj-value|{ value: coverImage }| obj=issue field="coverImage" as="object">
-                  <marko-newsletter-imgix
-                    src=coverImage.src
-                    alt=coverImage.alt
-                    attrs={ border: 0, width: 150 }
-                  >
-                    <@link href=issue.digitalEditionUrl target="_blank" />
-                  </marko-newsletter-imgix>
-                </marko-core-obj-value>
-              </td>
-            </for>
-          </tr>
-        </table>
-        <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
-          <common-table-spacer-element height="10" />
-          <tr>
-            <td col span="3" align="center" valign="center">
-              <div style=subscribeStyle>
-                $!{subscribeText}
-              </div>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <common-table-spacer-element height="32" />
-  </table>
+      <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
+        <tr>
+          <td align="center" valign="top">
+            <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+              <tr>
+                <for|issue| of=issues>
+                  <td align="center">
+                    <marko-core-obj-value|{ value: coverImage }| obj=issue field="coverImage" as="object">
+                      <marko-newsletter-imgix
+                        src=coverImage.src
+                        alt=coverImage.alt
+                        attrs={ border: 0, width: 150 }
+                      >
+                        <@link href=issue.digitalEditionUrl target="_blank" />
+                      </marko-newsletter-imgix>
+                    </marko-core-obj-value>
+                  </td>
+                </for>
+              </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+              <common-table-spacer-element height="10" />
+              <tr>
+                <td col span="3" align="center" valign="center">
+                  <div style=subscribeStyle>
+                    $!{subscribeText}
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-spacer-element height="32" />
+      </table>
+    </td>
+  </tr>
 </marko-web-query>
