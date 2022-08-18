@@ -40,13 +40,11 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=0
         />
 
-        <!-- Advertisement / Promotion block -->
+        <!-- Sponsored Ad -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+          ad-unit=emailX.getAdUnit({ name: "sponsored", alias: newsletter.alias })
         />
 
         <!-- Content list block (no image)-->
@@ -62,13 +60,13 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=1
         />
 
-        <!-- Advertisement / Sponsored block-->
+        <!-- Advertisement / Promotion block -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
+          promotion-component="aqua-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
         />
 
         <!-- Community News -->
@@ -88,9 +86,9 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+          promotion-component="aqua-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
         />
 
         <!-- Content list block (no image) -->
@@ -102,6 +100,15 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           url-params=urlParams
           limit=5
           skip=3
+        />
+
+        <!-- Advertisement / Sponsored block-->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="aqua-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
         />
 
         <!-- Related Stories -->
@@ -121,7 +128,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
+          promotion-component="aqua-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
         />
@@ -142,7 +149,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          promotion-component="advertisement-block"
+          promotion-component="aqua-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
         />

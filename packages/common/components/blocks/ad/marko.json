@@ -11,6 +11,9 @@
   "<common-ad-promotion-sponsored-block>": {
     "template": "./promotion-sponsored.marko"
   },
+  "<common-ad-promotion-aqua-block>": {
+    "template": "./promotion-aqua.marko"
+  },
   "<common-ad-wrapper-block>": {
     "template": "./wrapper.marko"
   }

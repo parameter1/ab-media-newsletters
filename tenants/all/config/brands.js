@@ -29,8 +29,8 @@ module.exports = {
       headerWidth: 130,
     },
     advertiseLink: 'https://info.aquamagazine.com/',
-    subscribeLink: '',
-    privacyPolicyLink: '',
+    subscribeLink: 'https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=aqua_pref',
+    privacyPolicyLink: 'https://www.aquamagazine.com/page/privacy-policy',
     magazineSubscription: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land',
     publicationId: '6156026eda016482232f7b11',
     socialMedia: {
