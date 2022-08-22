@@ -9,6 +9,7 @@ $ const { date, newsletter } = input;
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const publicationId = get(newsletterConfig, "publicationId");
 $ const subscribeText = get(newsletterConfig, "subscribeText");
+$ const headerText = get(newsletterConfig, "headerText");
 
 $ const subscribeStyle = {
   "font-size": "20px",
@@ -26,7 +27,12 @@ $ const subscribeStyle = {
   <tr>
     <td>
       <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-        <common-list-header-element title="Subscribe" />
+        <if(headerText)>
+          <common-list-header-element title=headerText />
+        </if>
+        <else>
+          <common-list-header-element title="Subscribe" />
+        </else>
       </table>
 
       <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
