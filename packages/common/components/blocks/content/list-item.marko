@@ -182,7 +182,7 @@ $ const sponsoredTagStyle = {
                     <marko-newsletter-imgix
                       src=image.src
                       alt=image.alt
-                      options={ w: 400, h: 266, fit: "crop", auto: "format,compress" }
+                      options={ w: 400, h: 266, fit: 'fill', fill: 'solid', 'fill-color': '#ffffff' }
                       class="img_resize2"
                       attrs={ border: 0, width: 200, height: 133, style: imgStyles }
                     >
@@ -225,14 +225,20 @@ $ const sponsoredTagStyle = {
         <common-table-spacer-element height="5" />
         <if(withTeaser)>
           <tr>
-            <td align="left" valign="middle" class="hide_on_mobile" style="display: none;mso-hide: all;font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-              ${content.teaser}
+            <td>
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="hide_on_mobile">
+                <tr>
+                  <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
+                    ${content.teaser}
+                  </td>
+                </tr>
+                <if(continueReading)>
+                  <common-table-spacer-element height="9" />
+                  <common-cta-element link-url=contentUrl />
+                </if>
+              </table>
             </td>
           </tr>
-        </if>
-        <if(continueReading)>
-          <common-table-spacer-element height="9" />
-          <common-cta-element link-url=contentUrl />
         </if>
       </else>
       <common-table-spacer-element height="32" />
