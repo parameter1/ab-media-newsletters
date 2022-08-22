@@ -20,7 +20,8 @@ const config = {
     ...brands.wfb,
     name: 'WFB E-News',
     primaryColor: '#7cc242',
-    subscribeText: '<a href="https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=wfb_pref" style="text-decoration: none;color: #7cc242">Subscribe</a> to WFB--free to qualified wood flooring pros.',
+    headerText: 'Read Recent Issues',
+    subscribeText: '<a href="https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=wfb_pref" style="text-decoration: none;color: #7cc242">Subscribe</a> to WFB—free to qualified wood flooring pros.',
   },
   'aqua-today': {
     ...brands.aqua,
