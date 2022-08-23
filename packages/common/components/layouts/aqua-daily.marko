@@ -29,7 +29,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <!-- Content list block (with image)-->
         <common-content-list-block
           date=date
-          section-name="Main"
+          section-name="Feature Story"
           newsletter=newsletter
           with-image=true
           image-position='top'
@@ -37,7 +37,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           with-section=false
           url-params=urlParams
           limit=1
-          skip=0
         />
 
         <!-- Sponsored Ad -->
@@ -52,12 +51,13 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           section-name="Main"
           newsletter=newsletter
-          with-image=withImage
+          with-image=true
           image-position='right'
-          continue-reading=true
+          with-teaser=true
+          with-section=false
+          continue-reading=continueReading
           url-params=urlParams
-          limit=2
-          skip=1
+          limit=1
         />
 
         <!-- Advertisement / Promotion block -->
@@ -65,50 +65,51 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="aqua-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+          placement-id=get(nativeX, `placements.${newsletter.alias}.sponsored`)
         />
 
-        <!-- Community News -->
-        <common-content-list-block
-          date=date
-          section-name="Community News"
-          newsletter=newsletter
-          with-header=true
-          continue-reading=continueReading
-          with-teaser=false
-          url-params=urlParams
-          limit=6
-          skip=0
-        />
-
-        <!-- Advertisement / Sponsored block-->
-        <common-ad-wrapper-block
-          date=date
-          newsletter=newsletter
-          promotion-component="aqua-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
-        />
-
-        <!-- Content list block (no image) -->
+        <!-- Content list block (no image)-->
         <common-content-list-block
           date=date
           section-name="Main"
           newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-teaser=true
+          with-section=false
           continue-reading=continueReading
           url-params=urlParams
-          limit=5
-          skip=3
+          limit=1
+          skip=1
         />
 
-        <!-- Advertisement / Sponsored block-->
-        <common-ad-wrapper-block
+        <!-- Split Sponsored block-->
+        <common-ad-promotion-sponsored-block
           date=date
           newsletter=newsletter
-          promotion-component="aqua-block"
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+        />
+
+        <!-- Community News -->
+        <common-content-community-block
+          date=date
+          section-name="Community News"
+          newsletter=newsletter
+          with-header=true
+          with-section=false
+          continue-reading=continueReading
+          with-teaser=false
+          url-params=urlParams
+          limit=6
+        />
+
+        <!-- Split Sponsored block-->
+        <common-ad-promotion-sponsored-block
+          date=date
+          newsletter=newsletter
           ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
         />
 
         <!-- Related Stories -->
@@ -117,20 +118,52 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           section-name="Related Stories"
           newsletter=newsletter
           with-image=true
+          with-section=false
           image-position='right'
           with-header=true
+          with-teaser=true
           continue-reading=continueReading
           limit=3
-          skip=0
         />
 
-        <!-- Advertisement / Sponsored block-->
-        <common-ad-wrapper-block
+        <!-- Content list block (no image) -->
+        <common-content-list-block
           date=date
+          section-name="What's Trending"
           newsletter=newsletter
-          promotion-component="aqua-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
+          with-image=true
+          image-position='right'
+          with-header=true
+          with-teaser=true
+          with-section=false
+          url-params=urlParams
+          limit=3
+        />
+
+        <!-- Content list block (top-image) -->
+        <common-content-list-block
+          date=date
+          section-name="In Case You Missed It"
+          newsletter=newsletter
+          with-image=true
+          image-position='top'
+          with-header=true
+          with-teaser=true
+          with-section=false
+          url-params=urlParams
+          limit=3
+        />
+
+        <!-- Content list block (no image) -->
+        <common-content-list-block
+          date=date
+          section-name="Reader Comments"
+          newsletter=newsletter
+          with-header=true
+          with-teaser=true
+          with-section=false
+          url-params=urlParams
+          limit=3
         />
 
         <!-- New Products block -->
@@ -142,16 +175,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           image-position='right'
           with-header=true
           limit=3
-          skip=0
-        />
-
-        <!-- Advertisement / Sponsored block-->
-        <common-ad-wrapper-block
-          date=date
-          newsletter=newsletter
-          promotion-component="aqua-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
         />
 
         <!-- Magazine Cover block -->

@@ -1,4 +1,10 @@
-$ const { content } = input;
+import { get } from "@parameter1/base-cms-object-path";
+
+$ const { config } = out.global;
+$ const { date, newsletter, content } = input;
+
+$ const newsletterConfig = config.get(newsletter.alias);
+$ const shareableHeaderText = get(newsletterConfig, "shareableHeaderText");
 
 $ const imgStyles = {
   "border": 0,
@@ -9,22 +15,28 @@ $ const imgStyles = {
   "max-width": "100% !important",
 };
 
-
-<table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-  <common-table-spacer-element height="6" />
-  <tr>
-    <td align="center" valign="top">
-      <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
-        <marko-newsletter-imgix
-          src=image.src
-          alt=image.alt
-          options={ w: 400, h: 400, fit: "crop", auto: "format,compress" }
-          class="img_resize1"
-          attrs={ border: 0, width: 400, align: "center", vspace: 5, style: imgStyles }
-        >
-        </marko-newsletter-imgix>
-      </marko-core-obj-value>
-    </td>
-  </tr>
-  <common-table-spacer-element height="32" />
-</table>
+<tr>
+  <td>
+    <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
+      <if(shareableHeaderText)>
+        <common-list-header-element title=shareableHeaderText />
+      </if>
+      <common-table-spacer-element height="6" />
+      <tr>
+        <td align="center" valign="top">
+          <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
+            <marko-newsletter-imgix
+              src=image.src
+              alt=image.alt
+              options={ w: 400, h: 400, fit: "crop", auto: "format,compress" }
+              class="img_resize1"
+              attrs={ border: 0, width: 400, align: "center", vspace: 5, style: imgStyles }
+            >
+            </marko-newsletter-imgix>
+          </marko-core-obj-value>
+        </td>
+      </tr>
+      <common-table-spacer-element height="32" />
+    </table>
+  </td>
+</tr>

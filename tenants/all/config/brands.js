@@ -26,7 +26,6 @@ module.exports = {
     brandName: 'Aqua',
     logo: {
       src: '/files/base/abmedia/all/image/static/aqua-site-logo.png',
-      headerWidth: 130,
     },
     advertiseLink: 'https://info.aquamagazine.com/',
     subscribeLink: 'https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=aqua_pref',
