@@ -17,6 +17,7 @@ module.exports = {
       'slot-4': '62c6c8e36b7dcc000196786c',
     },
     'aqua-today': {
+      sponsored: '6304f4b379581f0001830e89',
       'slot-1': '62c6ca344e70600001b24bb6',
       'slot-2': '62c6ca434e70600001b24be1',
       'slot-3': '62c6ca554e70600001b24c33',
