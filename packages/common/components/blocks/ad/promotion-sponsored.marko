@@ -1,88 +1,127 @@
-import { get, getAsObject } from "@parameter1/base-cms-object-path";
+import { getAsObject, get } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
-$ const newsletter = getAsObject(input, "newsletter");
-$ const { sectionName, date, content } = input;
+$ const adUnit = getAsObject(input, "adUnit");
+$ const dpm = getAsObject(input, "dpm");
 
-$ const url = get(content, "siteContext.path");
-$ const company = getAsObject(content, "company");
+$ const useEmailxHref = defaultValue(input.useEmailxHref, false);
 
-$ const imgStyles = {
-  "font-size": "14px",
-  "line-height": 0,
-  "border": 0,
-};
+$ const { name, alias } = adUnit;
+$ const classNames = [`email-x-${alias}-${name}`, input.class];
 
-$ const imgLinkStyles = {
-  "display": "block",
-  "font-size": "14px",
-  "line-height": 0,
-}
+<marko-newsletters-email-x-data|{ response }| decoded-params=["email", "send"]>
+  <@ad-unit ...adUnit />
+  <@params date=input.date email="@{email name}@" send="@{track_id}@" include-advertiser=true />
+  <if(response)>
+    $ const { data, clickHref, imageSrc } = response;
+    $ const { ad } = data;
 
-<tr>
-  <td align="center" valign="top">
-    <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
-      <tr>
-        <td align="center" valign="top">
-          <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td align="left" valign="top">
-                <table role="presentation" width="99.3%" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center" valign="top">
-                      <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <common-table-hr-element />
-                        <common-table-spacer-element height="10" />
-                        <tr>
-                          <td align="left" valign="middle" style="font-size:16px;line-height:20px;color:#666666;font-weight:400;text-align: center;">Brought to you by</td>
-                        </tr>
-                        <tr>
-                          <td align="center" valign="top">
-                            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
-                              <common-table-spacer-element height="9" />
-                              <tr>
-                                <td align="center" valign="center" width="123">
-                                  <marko-core-obj-value|{ value: image }| obj=content.company field="primaryImage" as="object">
-                                    <marko-newsletter-imgix
-                                      src=image.src
-                                      alt=image.alt
-                                      options={ w: 180, h: 80, fit: "fill", auto: "format,compress" }
-                                      attrs={ border: 0, width: 90, style: imgStyles }
-                                    >
-                                      <@link href=content.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
-                                    </marko-newsletter-imgix>
-                                  </marko-core-obj-value>
-                                </td>
-                                <td align="left" valign="top">
-                                  <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td align="left" valign="top" style="font-size:16px;line-height:19px;color:#202022;font-weight:700;">${company.name}</td>
-                                    </tr>
-                                    <tr>
-                                      <td align="left" valign="top" style="font-size:16px;line-height:22px;color:#202022;font-weight:400;">${content.teaser}</td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <common-table-spacer-element height="6" />
-            <tr>
-              <td align="left" valign="top" style="font-size:16px;line-height:23px;color:#3475b6;font-weight:400;padding: 0 0 0 123px;" class="wdth">
-                <a href=url target="_blank" style="text-decoration: none;color: #3475b6;">${content.name}</a>
-              </td>
-            </tr>
-            <common-table-hr-element height="15" />
-            <common-table-spacer-element height="18" />
-          </table>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>
+    <!-- determine whether to use emailx click url or the native ad url -->
+    $ const href = useEmailxHref ? clickHref : ad.url;
+    $ const imageAttrs = {
+      ...getAsObject(input.image, "attrs"),
+      width: ad.width,
+      height: ad.height,
+    };
+
+    <common-table-hr-element />
+    <common-table-spacer-element height="12" />
+    <tr>
+      <td align="center" valign="top">
+        <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
+          </tr>
+          <common-table-spacer-element height="12" />
+        </table>
+        <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="left" valign="top" class="mobile">
+              <table width="300">
+                <tr>
+                  <td align="left">
+                    <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
+                      <@link target="_blank" ...input.link href=href />
+                    </marko-core-img>
+                    <if(defaultValue(dpm.enabled, true))>
+                      $ const position = dpm.position || 0;
+                      $ const lcvDefaultValue = position + "|" + get(data, "ad.lineitemName");
+                      $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
+                        // allow null to unset the default values.
+                        if (dpm[key] === null) return { ...o, [key]: "" };
+
+                        // otherwise treat all values as strings
+                        const value = `${dpm[key] || ''}`;
+                        if (!value) return o;
+                        // if value is in the form of {some.path} (e.g. {ad.lineItemname})
+                        // get the value off of the emailx response
+                        // otherwise, treat the value as a literal string and use it
+                        const matches = /^\{(.*)\}$/.exec(value);
+                        if (matches && matches[1]) {
+                          const v = get(data, matches[1]);
+                          if (v) return { ...o, [key]: v };
+                          return o;
+                        }
+                        return { ...o, [key]: value };
+                      }, {
+                        lc: "Advertising",
+                        lkw: "bannerad",
+                        ln: get(data, "ad.advertiserName"),
+                        lcv: lcvDefaultValue,
+                      });
+                      <!-- <marko-newsletters-omail-dpm ...dpmArgs /> -->
+                    </if>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td align="right" valign="top" class="mobile">
+              <table width="300">
+                <tr>
+                  <td align="right">
+                    <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
+                      <@link target="_blank" ...input.link href=href />
+                    </marko-core-img>
+                    <if(defaultValue(dpm.enabled, true))>
+                      $ const position = dpm.position || 0;
+                      $ const lcvDefaultValue = position + "|" + get(data, "ad.lineitemName");
+                      $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
+                        // allow null to unset the default values.
+                        if (dpm[key] === null) return { ...o, [key]: "" };
+
+                        // otherwise treat all values as strings
+                        const value = `${dpm[key] || ''}`;
+                        if (!value) return o;
+                        // if value is in the form of {some.path} (e.g. {ad.lineItemname})
+                        // get the value off of the emailx response
+                        // otherwise, treat the value as a literal string and use it
+                        const matches = /^\{(.*)\}$/.exec(value);
+                        if (matches && matches[1]) {
+                          const v = get(data, matches[1]);
+                          if (v) return { ...o, [key]: v };
+                          return o;
+                        }
+                        return { ...o, [key]: value };
+                      }, {
+                        lc: "Advertising",
+                        lkw: "bannerad",
+                        ln: get(data, "ad.advertiserName"),
+                        lcv: lcvDefaultValue,
+                      });
+                      <!-- <marko-newsletters-omail-dpm ...dpmArgs /> -->
+                    </if>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <common-table-hr-element />
+    <common-table-spacer-element height="20" />
+  </if>
+  <else>
+    <${input.whenEmpty} />
+  </else>
+</marko-newsletters-email-x-data>
