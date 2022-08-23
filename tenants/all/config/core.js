@@ -20,12 +20,14 @@ const config = {
     ...brands.wfb,
     name: 'WFB E-News',
     primaryColor: '#7cc242',
-    headerText: 'Read Recent Issues',
+    magazineHeaderText: 'Read Recent Issues',
+    shareableHeaderText: 'For Your Entertainment',
     subscribeText: '<a href="https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=wfb_pref" style="text-decoration: none;color: #7cc242">Subscribe</a> to WFB—free to qualified wood flooring pros.',
   },
   'aqua-today': {
     ...brands.aqua,
     name: 'AQUA Today',
+    subscribeText: '<a href=https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land&utm_source=Newsletter&utm_email=email&utm_term=&utm_medium=4&oly_enc_id=4" style="text-decoration: none;color: #103A57">Subscribe to AQUA</a> — free to qualified pool and spa professionals!',
   },
 };
 
