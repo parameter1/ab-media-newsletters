@@ -21,7 +21,7 @@ const config = {
     name: 'WFB E-News',
     primaryColor: '#7cc242',
     magazineHeaderText: 'Read Recent Issues',
-    shareableHeaderText: 'For Your Entertainment',
+    shareableHeaderText: 'WFB Shareable',
     subscribeText: '<a href="https://athleticbusiness.dragonforms.com/loading.do?r=8020C5690590H3S&omedasite=wfb_pref" style="text-decoration: none;color: #7cc242">Subscribe</a> to WFB—free to qualified wood flooring pros.',
   },
   'aqua-today': {
