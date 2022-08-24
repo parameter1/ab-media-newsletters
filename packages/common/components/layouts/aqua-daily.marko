@@ -93,18 +93,26 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
                 <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
               </tr>
               <common-table-spacer-element height="12" />
+            </table>
+            <table align="left" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td>
-                <common-ad-promotion-sponsored-block
-                  date=date
-                  newsletter=newsletter
-                  ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-                />
-                <common-ad-promotion-sponsored-block
-                  date=date
-                  newsletter=newsletter
-                  ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-                />
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+            <table align="right" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+                  />
                 </td>
               </tr>
             </table>
@@ -150,11 +158,13 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
             </table>
             <table align="right" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
               <tr>
+                <td>
                   <common-ad-promotion-sponsored-block
                     date=date
                     newsletter=newsletter
                     ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
                   />
+                </td>
               </tr>
             </table>
           </td>
