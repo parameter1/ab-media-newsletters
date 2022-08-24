@@ -43,7 +43,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
-          ad-unit=emailX.getAdUnit({ name: "sponsored", alias: newsletter.alias })
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
         />
 
         <!-- Content list block (no image)-->
@@ -84,12 +84,34 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Split Sponsored block-->
-        <common-ad-promotion-sponsored-block
-          date=date
-          newsletter=newsletter
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-        />
+        <common-table-hr-element />
+        <common-table-spacer-element height="12" />
+        <tr>
+          <td>
+            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
+              </tr>
+              <common-table-spacer-element height="12" />
+              <tr>
+                <td>
+                <common-ad-promotion-sponsored-block
+                  date=date
+                  newsletter=newsletter
+                  ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+                />
+                <common-ad-promotion-sponsored-block
+                  date=date
+                  newsletter=newsletter
+                  ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+                />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-hr-element />
+        <common-table-spacer-element height="20" />
 
         <!-- Community News -->
         <common-content-community-block
@@ -105,12 +127,40 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Split Sponsored block-->
-        <common-ad-promotion-sponsored-block
-          date=date
-          newsletter=newsletter
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
-        />
+        <common-table-hr-element />
+        <common-table-spacer-element height="12" />
+        <tr>
+          <td>
+            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
+              </tr>
+              <common-table-spacer-element height="12" />
+            </table>
+            <table align="left" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+                        <table align="right" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
+                  />
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-hr-element />
+        <common-table-spacer-element height="20" />
 
         <!-- Related Stories -->
         <common-content-list-block
