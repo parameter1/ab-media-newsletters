@@ -65,16 +65,10 @@ config
 
   .setAdUnits('aqua-today', [
     {
-      name: 'sponsored',
-      id: '62fe666b196d2f171af009f1',
-      width: 500,
-      height: 100,
-    },
-    {
       name: 'ad-slot-1',
       id: '62e926aedf69841b5e28f5d3',
-      width: 300,
-      height: 250,
+      width: 500,
+      height: 100,
     },
     {
       name: 'ad-slot-2',
