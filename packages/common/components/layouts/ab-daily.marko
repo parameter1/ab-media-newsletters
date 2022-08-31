@@ -31,7 +31,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus`)
+          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus-top`)
         />
 
         <!-- Content list block -->
@@ -105,18 +105,20 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Content list block -->
-        <common-content-community-block
+        <common-content-list-block
           date=date
           section-name="From the Community: Reader Comments"
           newsletter=newsletter
+          with-image=false
           with-header=true
+          with-teaser=true
           with-section=false
           url-params=urlParams
           limit=3
           skip=0
         />
 
-        <common-content-community-block
+        <common-content-list-block
           date=date
           section-name="From the Community: Most Read"
           newsletter=newsletter
@@ -125,6 +127,27 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           url-params=urlParams
           limit=1
           skip=0
+        />
+
+        <!--Digital Focus (non-sponsored) block-->
+        <common-content-list-block
+          date=date
+          section-name="Digital Focus"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          with-header=true
+          with-section=false
+          url-params=urlParams
+          limit=1
+        />
+
+        <!--Sponsored Content -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="native-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus-bottom`)
         />
 
         <!-- Advertisement / Promotional by block-->
@@ -177,19 +200,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
-        />
-
-        <!--Digital Focus (non-sponsored) block-->
-        <common-content-list-block
-          date=date
-          section-name="Digital Focus"
-          newsletter=newsletter
-          with-image=true
-          image-position='right'
-          with-header=true
-          with-section=false
-          url-params=urlParams
-          limit=1
         />
 
         <!-- Industry Announcements block -->
