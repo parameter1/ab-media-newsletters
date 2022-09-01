@@ -6,8 +6,6 @@ $ const { config } = out.global;
 
 $ const { newsletter, content, urlParams } = input;
 
-$ const withImage = defaultValue(input.withImage, false);
-$ const imagePosition = defaultValue(input.imagePosition, 'right');
 $ const withSection = defaultValue(input.withSection, true);
 $ const continueReading = defaultValue(input.continueReading, false);
 $ const withTeaser = defaultValue(input.withTeaser, true);
@@ -17,21 +15,6 @@ $ const contentUrl = `${content.siteContext.url}${queryString}`
 
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
-
-$ const imgStyles = {
-  "border": 0,
-  "outline": "none",
-  "text-decoration": "none",
-  "display": "block",
-  "height": "auto !important",
-  "max-width": "100% !important",
-};
-
-$ const imgLinkStyles = {
-  "border": 0,
-  "outline": "none",
-  "text-decoration": "none",
-};
 
 $ const tagStyle = {
   "font-size": "18px",
