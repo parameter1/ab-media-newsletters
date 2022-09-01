@@ -2,7 +2,8 @@ module.exports = {
   uri: 'https://abmedia.native-x.parameter1.com',
   placements: {
     'athletic-business-today': {
-      'digital-focus': '62f126175a48b00001162a04',
+      'digital-focus-top': '62f126175a48b00001162a04',
+      'digital-focus-bottom': '630fb605238ef70001ff572c',
       'facility-of-the-week': '62f3faa65a48b000011fb169',
       'slot-1': '62b2220b1c9be80001f4e117',
       'slot-2': '62c6c80e4e70600001b24506',
