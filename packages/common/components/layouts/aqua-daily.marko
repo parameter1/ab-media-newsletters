@@ -134,6 +134,20 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           limit=6
         />
 
+        <!-- Related Stories -->
+        <common-content-list-block
+          date=date
+          section-name="Related Stories"
+          newsletter=newsletter
+          with-image=true
+          with-section=false
+          image-position='right'
+          with-header=true
+          with-teaser=true
+          continue-reading=continueReading
+          limit=3
+        />
+
         <!-- Split Sponsored block-->
         <common-table-hr-element />
         <common-table-spacer-element height="12" />
@@ -171,20 +185,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         </tr>
         <common-table-hr-element />
         <common-table-spacer-element height="20" />
-
-        <!-- Related Stories -->
-        <common-content-list-block
-          date=date
-          section-name="Related Stories"
-          newsletter=newsletter
-          with-image=true
-          with-section=false
-          image-position='right'
-          with-header=true
-          with-teaser=true
-          continue-reading=continueReading
-          limit=3
-        />
 
         <!-- Content list block (no image) -->
         <common-content-list-block
