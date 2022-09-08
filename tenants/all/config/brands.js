@@ -2,8 +2,7 @@ module.exports = {
   ab: {
     brandName: 'Athletic Business',
     logo: {
-      src: '/files/base/abmedia/all/image/static/ab-site-logo.png',
-      headerWidth: 130,
+      src: '/files/base/abmedia/all/image/static/ab/AB_Today_Header.jpg',
       footerWidth: 200,
     },
     advertiseLink: 'https://www.athleticbusiness.info/',
