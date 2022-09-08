@@ -5,11 +5,6 @@ const nativeX = require('./native-x');
 const config = {
   emailX,
   nativeX,
-  dpm: {
-    emailx: {
-      enabled: true,
-    },
-  },
   'athletic-business-today': {
     ...brands.ab,
     name: 'Athletic Business Today',
