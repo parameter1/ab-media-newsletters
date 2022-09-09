@@ -107,26 +107,8 @@ $ const sponsoredTagStyle = {
               </tr>
               <tr>
                 <td>
-                  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="hide_on_mobile">
+                  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                     <common-table-spacer-element height="5" />
-                    <if(withTeaser)>
-                      <tr>
-                        <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-                          ${content.teaser}
-                        </td>
-                      </tr>
-                    </if>
-                    <if(continueReading)>
-                      <common-table-spacer-element height="9" />
-                      <common-cta-element link-url=contentUrl />
-                    </if>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td align="left" valign="top" class="hide_on_mobile" style="display: none;mso-hide: all;">
-                  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="mso-hide: all;">
-                    <common-table-spacer-element height="10" />
                     <if(withTeaser)>
                       <tr>
                         <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
@@ -162,7 +144,7 @@ $ const sponsoredTagStyle = {
                     </tr>
                     <tr>
                       <td>
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="hide_on_mobile">
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <common-table-spacer-element height="5" />
                           <if(withTeaser)>
                             <tr>
@@ -197,24 +179,6 @@ $ const sponsoredTagStyle = {
             </table>
           </td>
         </tr>
-        <tr>
-          <td align="left" valign="top" class="hide_on_mobile" style="display: none;mso-hide: all;">
-            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="mso-hide: all;">
-              <common-table-spacer-element height="10" />
-              <if(withTeaser)>
-                <tr>
-                  <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
-                    ${content.teaser}
-                  </td>
-                </tr>
-              </if>
-              <if(continueReading)>
-                <common-table-spacer-element height="9" />
-                <common-cta-element link-url=contentUrl />
-              </if>
-            </table>
-          </td>
-        </tr>
       </else-if>
 
       <else>
@@ -229,7 +193,7 @@ $ const sponsoredTagStyle = {
         <if(withTeaser)>
           <tr>
             <td>
-              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="hide_on_mobile">
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td align="left" valign="top" style="font-size: 17px;line-height: 23px;color: #202022;font-weight: 400;">
                     ${content.teaser}
