@@ -6,6 +6,7 @@ module.exports = {
       'digital-focus-bottom': '630fb605238ef70001ff572c',
       'facility-of-the-week': '62f3faa65a48b000011fb169',
       'sponsored-content': '6318dd5d646e0b00017c1f6a',
+      'facility-of-merit': '631f60c9646e0b00018e4015',
       'slot-1': '62b2220b1c9be80001f4e117',
       'slot-2': '62c6c80e4e70600001b24506',
       'slot-3': '62c6c8246b7dcc0001967589',
