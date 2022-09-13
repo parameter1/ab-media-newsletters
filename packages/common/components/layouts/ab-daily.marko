@@ -26,12 +26,20 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
     <common-body-wrapper-block newsletter=newsletter date=date>
       <@body>
 
-        <!--Sponsored Content -->
+        <!--Digital Focus -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
           promotion-component="native-block"
           placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus-top`)
+        />
+
+        <!--Facility of Merit -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="ab-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.facility-of-merit`)
         />
 
         <!-- Content list block -->
