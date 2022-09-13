@@ -31,5 +31,8 @@
   },
   "<common-content-shareable-item-block>": {
     "template": "./shareable-item.marko"
+  },
+  "<common-content-facility-merit-block>": {
+    "template": "./facility-merit.marko"
   }
 }
