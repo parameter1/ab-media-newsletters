@@ -40,11 +40,14 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         />
 
         <!-- Sponsored Ad -->
+        <common-table-hr-element />
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
           ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
         />
+        <common-table-hr-element />
+        <common-table-spacer-element height=15 />
 
         <!-- Content list block (no image)-->
         <common-content-list-block
