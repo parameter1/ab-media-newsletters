@@ -23,9 +23,13 @@ $ const queryParams = {
 
 <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params=queryParams>
   <if(nodes.length)>
-    <if(withHeader)>
-      <common-list-header-element title=sectionName />
+    <if(sectionName === 'Most Read')>
+      $ const title = date.isoWeekday() === 1 ? 'Friday’s Most Read' : 'Yesterday’s Most Read';
+      <common-list-header-element title=title />
     </if>
+    <else-if(withHeader)>
+      <common-list-header-element title=sectionName />
+    </else-if>
     <for|content| of=nodes>
       <common-content-list-item-block
         content=content
