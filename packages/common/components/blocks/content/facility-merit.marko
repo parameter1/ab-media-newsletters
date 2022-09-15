@@ -53,7 +53,7 @@ $ const sponsoredTagStyle = {
 
       $ const labels = getAsArray(content, "labels");
       <if(labels.includes("Sponsored"))>
-        $ const tag = (content.company) ? `2022 Facility of Merit Sponsored by ${get(content, "company.name")}` : "Sponsored Content";
+        $ const tag = (content.company) ? `2022 Facilities of Merit Annoucements Sponsored by ${get(content, "company.name")}` : "Sponsored Content";
         <tr>
           <td align="left" valign="center" style=sponsoredTagStyle>${tag}</td>
           <td align="right">
