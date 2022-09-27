@@ -29,7 +29,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
     </marko-core-img>
     <if(defaultValue(dpm.enabled, true))>
       $ const position = dpm.position || 0;
-      $ const lcvDefaultValue = position + "|" + get(data, "ad.lineitemName");
+      $ const lcvDefaultValue = get(data, "ad.advertiserName");
       $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
         // allow null to unset the default values.
         if (dpm[key] === null) return { ...o, [key]: "" };
@@ -50,10 +50,10 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
       }, {
         lc: "Advertising",
         lkw: "bannerad",
-        ln: get(data, "ad.advertiserName"),
+        ln: get(data, "ad.name"),
         lcv: lcvDefaultValue,
       });
-      <!-- <marko-newsletters-omail-dpm ...dpmArgs /> -->
+      <marko-newsletters-omail-dpm ...dpmArgs />
     </if>
   </if>
   <else>
