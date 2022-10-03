@@ -46,7 +46,7 @@ module.exports = {
   wfb: {
     brandName: 'Wood Floor Business',
     logo: {
-      src: '/files/base/abmedia/all/image/static/wfb-site-logo.png',
+      src: '/files/base/abmedia/all/image/static/wfb/Wood-Floor-Business_logo.png',
       footerWidth: 250,
     },
     advertiseLink: 'https://info.woodfloorbusiness.com/',
