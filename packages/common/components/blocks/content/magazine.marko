@@ -15,6 +15,11 @@ $ const subscribeStyle = {
   "font-size": "20px",
 }
 
+$ const magStyle = {
+  "width": "150px",
+  "height": "206px",
+}
+
 <marko-web-query|{ nodes: issues }|
   name="magazine-active-issues"
   params={
@@ -46,7 +51,7 @@ $ const subscribeStyle = {
                       <marko-newsletter-imgix
                         src=coverImage.src
                         alt=coverImage.alt
-                        attrs={ border: 0, width: 150 }
+                        attrs={ border: 0, style: magStyle }
                       >
                         <@link href=issue.digitalEditionUrl target="_blank" />
                       </marko-newsletter-imgix>
