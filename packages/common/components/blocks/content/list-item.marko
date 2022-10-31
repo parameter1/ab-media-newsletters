@@ -47,6 +47,12 @@ $ const sponsoredTagStyle = {
   "font-size": "16px",
 }
 
+$ const logoStyle = {
+  "font-size": "14px",
+  "line-height": 0,
+  "border": 0,
+}
+
 <tr>
   <td align="center" valign="top">
     <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
@@ -56,13 +62,13 @@ $ const sponsoredTagStyle = {
         $ const tag = (content.company) ? `Sponsored by ${get(content, "company.name")}` : "Sponsored Content";
         <tr>
           <td align="left" valign="center" style=sponsoredTagStyle>${tag}</td>
-          <td align="right">
+          <td align="right" width="200">
             <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
               <marko-newsletter-imgix
                 src=advertiser.image.src
                 alt=advertiser.image.alt
-                options={ w: 120, h: 50 }
-                attrs={ border: 0, style: imgStyles }
+                options={ w: 360, h: 90, fit: "fill", auto: "format,compress" }
+                attrs={ border: 0, width: 180, style: logoStyle }
               >
                 <@link href=advertiser.website target="_blank" attrs={ style: imgLinkStyles } />
               </marko-newsletter-imgix>
