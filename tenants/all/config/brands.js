@@ -1,6 +1,7 @@
 module.exports = {
   ab: {
     brandName: 'Athletic Business',
+    message: 'AB Today will not be delivered Thursday and Friday in observance of the holiday. We’ll be back in your inbox Monday. Happy Thanksgiving!',
     logo: {
       src: '/files/base/abmedia/all/image/static/ab/AB_Today_Header.jpg',
       footerWidth: 200,
