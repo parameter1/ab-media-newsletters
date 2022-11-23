@@ -6,15 +6,6 @@ $ const { date, newsletter, content } = input;
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const shareableHeaderText = get(newsletterConfig, "shareableHeaderText");
 
-$ const imgStyles = {
-  "border": 0,
-  "outline": "none",
-  "text-decoration": "none",
-  "display": "block",
-  "height": "auto !important",
-  "max-width": "100% !important",
-};
-
 <tr>
   <td>
     <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
@@ -28,7 +19,9 @@ $ const imgStyles = {
             <marko-newsletter-imgix
               src=image.src
               alt=image.alt
+              options={ fit: "crop", auto: "format,compress" }
               class="img_resize1"
+              attrs={ border: 0, align: "center", vspace: 5 }
             >
             </marko-newsletter-imgix>
           </marko-core-obj-value>
