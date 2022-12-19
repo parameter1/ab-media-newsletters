@@ -19,11 +19,6 @@ $ const newsletterConfig = config.get(newsletter.alias);
 $ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
 $ const imgStyles = {
-  "border": 0,
-  "outline": "none",
-  "text-decoration": "none",
-  "display": "block",
-  "height": "auto !important",
   "max-width": "100% !important",
 };
 
@@ -91,9 +86,9 @@ $ const logoStyle = {
               <marko-newsletter-imgix
                 src=image.src
                 alt=image.alt
-                options={ w: 1220, h: 610, fit: "crop", auto: "format,compress" }
+                options={ w: 610, h: 343, fit: "crop", auto: "format,compress" }
                 class="img_resize1"
-                attrs={ border: 0, width: 610, align: "center", vspace: 5, style: imgStyles }
+                attrs={ border: 0, width: 610, height: 343, align: "center", style: imgStyles }
               >
                 <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles } />
               </marko-newsletter-imgix>
