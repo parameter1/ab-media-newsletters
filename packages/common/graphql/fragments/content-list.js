@@ -35,6 +35,10 @@ fragment NewsletterContentListFragment on Content {
     src(input: { options: { auto: "format,compress", q: 70 } })
     alt
     isLogo
+    cropRectangle {
+      width
+      height
+    }
   }
   ... on ContentPromotion {
     body(input: { mutation: Email })
