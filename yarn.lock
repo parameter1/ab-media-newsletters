@@ -980,15 +980,6 @@
     html2plaintext "^2.1.2"
     striptags "^3.1.1"
 
-"@parameter1/base-cms-html@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-html/-/base-cms-html-3.0.0.tgz#61f56ab181cfed0663ab38227893301d8f593599"
-  integrity sha512-Z7vfj1E1wVBe449BxBqcbODTOEs5KbzsZk+wakTEtGnX1LHPtFhKy2pI+C2ZpcPlP4VRuWjl7c3EzOobjZ/6tA==
-  dependencies:
-    html-entities "^1.4.0"
-    html2plaintext "^2.1.2"
-    striptags "^3.2.0"
-
 "@parameter1/base-cms-image@^2.8.1":
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-image/-/base-cms-image-2.8.1.tgz#8ffad1ab707565eb232d23ab52a9ab388d553e24"
@@ -997,25 +988,10 @@
     "@parameter1/base-cms-html" "^2.0.0"
     "@parameter1/base-cms-inflector" "^2.0.0"
 
-"@parameter1/base-cms-image@^3.13.5":
-  version "3.13.5"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-image/-/base-cms-image-3.13.5.tgz#321ebad4413d7c640ef4df8b7581c1e94677d9a7"
-  integrity sha512-rTlADYexCguyN6vToqorruh9MvjBdiIq8ADHZ1VeRhVERqvkyfmEMx/KQAYALW7xbOoGoBEnIGIwXPMEKWJ1Cw==
-  dependencies:
-    "@parameter1/base-cms-html" "^3.0.0"
-    "@parameter1/base-cms-inflector" "^3.0.0"
-
 "@parameter1/base-cms-inflector@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-inflector/-/base-cms-inflector-2.0.0.tgz#856ec47bdba697173293baef7481e3567e25495f"
   integrity sha512-Nej4y5gWJhgN/7WZQJWHfZ3DMpqouSH5L8ZjOS2yh5rVTrmkWzPgTWocBVEyOptlAxa27seReG1GqdVFa/7G2Q==
-  dependencies:
-    inflected "^2.1.0"
-
-"@parameter1/base-cms-inflector@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-inflector/-/base-cms-inflector-3.0.0.tgz#c3c554a9419b70a6aa7771aa7c1308fc53a8bbdc"
-  integrity sha512-3ALKCXoexBScWlXvdHfUyeFmAtjxlccwluN7QUuZ7FuCu58fMJEZEnxkO2KhPfPfAUpv4ZYZns738DN3wqifPA==
   dependencies:
     inflected "^2.1.0"
 
@@ -7367,7 +7343,7 @@ strip-json-comments@^2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-striptags@^3.1.1, striptags@^3.2.0:
+striptags@^3.1.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/striptags/-/striptags-3.2.0.tgz#cc74a137db2de8b0b9a370006334161f7dd67052"
   integrity sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw==
