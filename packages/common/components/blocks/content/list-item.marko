@@ -6,6 +6,10 @@ $ const { config } = out.global;
 
 $ const { newsletter, content, urlParams, advertiser } = input;
 
+$ const getImageHeight = (width) => {
+  return getRelativeCropRectangleHeight({ width, cropRectangle: content.primaryImage.cropRectangle })
+};
+
 $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
 $ const withSection = defaultValue(input.withSection, true);
@@ -19,11 +23,6 @@ $ const newsletterConfig = config.get(newsletter.alias);
 $ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
 $ const imgStyles = {
-  "border": 0,
-  "outline": "none",
-  "text-decoration": "none",
-  "display": "block",
-  "height": "auto !important",
   "max-width": "100% !important",
 };
 
@@ -67,7 +66,7 @@ $ const logoStyle = {
               <marko-newsletter-imgix
                 src=advertiser.image.src
                 alt=advertiser.image.alt
-                options={ w: 360, h: 90, fit: "fill", auto: "format,compress" }
+                options={ w: 360, auto: "format,compress" }
                 attrs={ border: 0, width: 180, style: logoStyle }
               >
                 <@link href=advertiser.website target="_blank" attrs={ style: imgLinkStyles } />
@@ -91,7 +90,7 @@ $ const logoStyle = {
               <marko-newsletter-imgix
                 src=image.src
                 alt=image.alt
-                options={ w: 1220, h: 610, fit: "crop", auto: "format,compress" }
+                options={ w: 1220, auto: "format,compress" }
                 class="img_resize1"
                 attrs={ border: 0, width: 610, align: "center", vspace: 5, style: imgStyles }
               >
@@ -173,9 +172,9 @@ $ const logoStyle = {
                     <marko-newsletter-imgix
                       src=image.src
                       alt=image.alt
-                      options={ w: 400, h: 266, fit: "fill" }
+                      options={ w: 400 }
                       class="img_resize2"
-                      attrs={ border: 0, width: 200, height: 133, style: imgStyles }
+                      attrs={ border: 0, width: 200, style: imgStyles }
                     >
                       <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles } />
                     </marko-newsletter-imgix>
