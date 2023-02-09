@@ -22,6 +22,7 @@ const config = {
   'aqua-today': {
     ...brands.aqua,
     name: 'AQUA Today',
+    permission: 'You are receiving this email deployment because you have opted in to receive emails from AQUA Magazine or you have a subscription to AQUA Magazine.',
     subscribeText: '<a href=https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land&utm_source=Newsletter&utm_email=email&utm_term=&utm_medium=4&oly_enc_id=4" target="_blank" style="text-decoration: none;color: #103A57">Subscribe to AQUA</a> — free to qualified pool and spa professionals!',
   },
 };
