@@ -9,7 +9,6 @@ $ const tagline = get(newsletterConfig, "tagline");
 $ const subscribeLink = get(newsletterConfig, "subscribeLink");
 $ const publicationName = website.get("name");
 $ const privacyPolicyLink = get(newsletterConfig, "privacyPolicyLink");
-$ const permission = get(newsletterConfig, "permission");
 $ const footerWidth = defaultValue(get(newsletterConfig, "logo.footerWidth"), 130);
 
 $ const standardStyle = {
@@ -123,20 +122,11 @@ $ const taglineStyle = {
                 <common-table-spacer-element height="20" />
               </if>
 
-              <if(permission)>
-                <tr>
-                  <td align="left" valign="top" style=smallerStyle>
-                    ${permission}
-                  </td>
-                </tr>
-              </if>
-              <else>
-                <tr>
-                  <td align="left" valign="top" style=smallerStyle>
-                    You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName} magazine.
-                  </td>
-                </tr>
-              </else>
+              <tr>
+                <td align="left" valign="top" style=smallerStyle>
+                  You are receiving this email deployment because you have opted in to receive emails from ${publicationName} or you have a subscription to ${publicationName.replace(/ Magazine$/, '')} magazine.
+                </td>
+              </tr>
               <common-table-spacer-element height="20" />
               <tr>
                 <td align="left" valign="top" style=smallerStyle>
