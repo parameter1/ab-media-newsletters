@@ -1,5 +1,5 @@
 module.exports = {
-  uri: 'https://abmedia.native-x.parameter1.com',
+  uri: 'https://abmedia.native-x.parameter1.com/email-placement',
   placements: {
     'athletic-business-today': {
       'digital-focus-top': '62f126175a48b00001162a04',
