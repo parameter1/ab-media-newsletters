@@ -45,7 +45,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+          placement-id=nativeX.getPlacement({ name: 'slot-1', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block (no image)-->
@@ -67,7 +67,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
+          placement-id=nativeX.getPlacement({ name: 'slot-2', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block (no image) -->
@@ -90,7 +90,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+          placement-id=nativeX.getPlacement({ name: 'slot-3', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block (no image) -->
@@ -113,7 +113,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
+          placement-id=nativeX.getPlacement({ name: 'slot-4', aliases: [newsletter.alias] }).id
         />
 
         <!-- What's Trending block -->

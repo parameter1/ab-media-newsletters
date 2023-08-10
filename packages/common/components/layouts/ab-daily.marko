@@ -31,7 +31,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus-top`)
+          placement-id=nativeX.getPlacement({ name: 'digital-focus-top', aliases: [newsletter.alias] }).id
         />
 
         <!--Facility of Merit -->
@@ -39,7 +39,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="ab-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.facility-of-merit`)
+          placement-id=nativeX.getPlacement({ name: 'facility-of-merit', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block -->
@@ -60,7 +60,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
+          placement-id=nativeX.getPlacement({ name: 'slot-1', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block-->
@@ -80,7 +80,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.sponsored-content`)
+          placement-id=nativeX.getPlacement({ name: 'sponsored-content', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block -->
@@ -101,7 +101,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
+          placement-id=nativeX.getPlacement({ name: 'slot-2', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block -->
@@ -122,7 +122,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
+          placement-id=nativeX.getPlacement({ name: 'slot-3', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block -->
@@ -157,7 +157,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
+          placement-id=nativeX.getPlacement({ name: 'slot-4', aliases: [newsletter.alias] }).id
         />
 
         <common-content-list-block
@@ -177,7 +177,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           newsletter=newsletter
           promotion-component="advertisement-block"
           ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
+          placement-id=nativeX.getPlacement({ name: 'slot-5', aliases: [newsletter.alias] }).id
         />
 
         <!--Digital Focus (non-sponsored) block-->
@@ -196,7 +196,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.digital-focus-bottom`)
+          placement-id=nativeX.getPlacement({ name: 'digital-focus-bottom', aliases: [newsletter.alias] }).id
         />
 
         <!-- Featured Vendor block -->
@@ -230,7 +230,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="native-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.facility-of-the-week`)
+          placement-id=nativeX.getPlacement({ name: 'facility-of-the-week', aliases: [newsletter.alias] }).id
         />
 
         <!-- Facility of the Week block -->

@@ -8,6 +8,8 @@ $ const { newsletter, date, publicationId } = input.data;
 $ const emailX = config.get("emailX");
 $ const nativeX = config.getAsObject("nativeX");
 
+$ console.log('nativeX: ', nativeX)
+
 $ const withImage = parseBooleanHeader(get(req, "query.with-image"));
 $ const continueReading = parseBooleanHeader(get(req, "query.continue-reading"));
 
@@ -62,13 +64,12 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           url-params=urlParams
           limit=1
         />
-
         <!-- Advertisement / Promotion block -->
         <common-ad-wrapper-block
           date=date
           newsletter=newsletter
           promotion-component="aqua-block"
-          placement-id=get(nativeX, `placements.${newsletter.alias}.sponsored`)
+          placement-id=nativeX.getPlacement({ name: 'sponsored', aliases: [newsletter.alias] }).id
         />
 
         <!-- Content list block (no image)-->
