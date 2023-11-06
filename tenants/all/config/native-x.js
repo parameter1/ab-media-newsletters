@@ -14,6 +14,7 @@ module.exports = {
       'slot-5': '62c6c84b4e70600001b24623',
     },
     'wfb-enews': {
+      sponsored: '6548e09ef0334a0001121fb2',
       'slot-1': '62c6c89e6b7dcc00019677b6',
       'slot-2': '62c6c8ae4e70600001b2479d',
       'slot-3': '62c6c8d16b7dcc0001967829',

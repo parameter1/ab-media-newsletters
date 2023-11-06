@@ -58,7 +58,29 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           continue-reading=true
           url-params=urlParams
           with-teaser=true
-          limit=2
+          limit=1
+        />
+
+        <!-- Advertisement / Promotion block -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="advertisement-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.sponsored`)
+        />
+
+        <!-- Content list block (no image)-->
+        <common-content-list-block
+          date=date
+          section-name="Main"
+          newsletter=newsletter
+          with-image=true
+          image-position='right'
+          continue-reading=true
+          url-params=urlParams
+          with-teaser=true
+          limit=1
+          skip=1
         />
 
         <!-- Advertisement / Sponsored block-->
