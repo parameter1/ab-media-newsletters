@@ -1,11 +1,4 @@
-import { get } from "@parameter1/base-cms-object-path";
-
-$ const { website, config } = out.global;
-
-$ const { newsletter } = input;
-
-$ const newsletterConfig = config.get(newsletter.alias);
-$ const message = get(newsletterConfig, "message");
+$ const { website } = out.global;
 
 <tr>
   <td align="center" valign="top" >
@@ -17,13 +10,6 @@ $ const message = get(newsletterConfig, "message");
         </td>
       </tr>
       <common-table-spacer-element height="10" />
-      <if(message)>
-        <tr>
-          <td align="center" valign="middle" style="font-size:15px;font-style:italic;line-height:19px; color:#62626c;font-weight:400;">
-            ${message}
-          </td>
-        </tr>
-      </if>
     </table>
   </td>
 </tr>
