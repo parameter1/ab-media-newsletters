@@ -9,7 +9,17 @@ $ const name = (newsletterConfig.name || newsletter.name);
 $ const logoSrc = newsletterConfig.logo.src;
 $ const alt = defaultValue(input.alt, newsletter.name);
 $ const logoWidth = newsletterConfig.logo.headerWidth;
+$ const message = newsletterConfig.message;
 
+
+<if(message)>
+  <common-table-spacer-element height="10" />
+  <tr>
+    <td align="center" valign="middle" style="font-size:15px;font-style:italic;line-height:19px; color:#62626c;font-weight:400;">
+      ${message}
+    </td>
+  </tr>
+</if>
 <if(logoWidth)>
   <tr>
     <td align="center" valign="top" bgcolor="#2f3031">
