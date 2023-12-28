@@ -8,7 +8,6 @@ const config = {
   'athletic-business-today': {
     ...brands.ab,
     name: 'Athletic Business Today',
-    message: 'AB Today will not be delivered next week in observance of the holidays. We’ll be back in your inbox Tuesday, Jan. 2. Season’s Greetings!',
     primaryColor: '#1f4391',
     subscribeText: 'Get your own subscription today!<br/><a style="color: #1f4391"><em>Athletic Business</em></a> magazine is completely free to qualified professionals in the athletic, fitness and recreation industries.<br/><a style="text-decoration: none; color: #c42127" href="https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land" target="_blank">Subscribe</a> today!',
   },
