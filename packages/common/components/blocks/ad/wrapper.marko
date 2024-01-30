@@ -6,6 +6,7 @@ import PromotionNativeBlock from "./promotion-native";
 import PromotionSponsoredBlock from "./promotion-sponsored";
 import PromotionAquaBlock from "./promotion-aqua";
 import PromotionAbBlock from "./promotion-ab";
+import PromotionDailyDig from "./promotion-daily-dig";
 
 $ const { config } = out.global;
 $ const nativeX = config.getAsObject("nativeX");
@@ -20,6 +21,7 @@ $ const promotionComponents = {
   "sponsored-block": PromotionSponsoredBlock,
   "aqua-block": PromotionAquaBlock,
   "ab-block": PromotionAbBlock,
+  "daily-dig-block": PromotionDailyDig
 };
 $ const PromotionComponent = promotionComponents[defaultValue(input.promotionComponent, "advertisement-block")];
 
