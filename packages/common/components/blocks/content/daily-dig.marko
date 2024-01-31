@@ -1,4 +1,4 @@
-import { get, getAsArray } from "@parameter1/base-cms-object-path";
+import { get } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { URLSearchParams } from "url";
 
@@ -14,9 +14,6 @@ $ const withTeaser = defaultValue(input.withTeaser, true);
 
 $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLSearchParams(urlParams)}` : "";
 $ const contentUrl = `${content.siteContext.url}${queryString}`
-
-$ const newsletterConfig = config.get(newsletter.alias);
-$ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
 $ const imgStyles = {
   "border": 0,
@@ -59,7 +56,6 @@ $ const tagStyle = {
       </tr>
     </table>
     <table align="right">
-      $ const labels = getAsArray(content, "labels");
       $ const tag = (content.company) ? `Powered by` : "Sponsored Content";
       <tr>
         <td align="right" valign="center" style=tagStyle>${tag}</td>
