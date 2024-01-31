@@ -34,5 +34,8 @@
   },
   "<common-content-facility-merit-block>": {
     "template": "./facility-merit.marko"
+  },
+  "<common-content-daily-dig-block>": {
+    "template": "./daily-dig.marko"
   }
 }

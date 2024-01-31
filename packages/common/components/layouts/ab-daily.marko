@@ -54,14 +54,43 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=0
         />
 
-        <!-- Advertisement / Promotional by block-->
-        <common-ad-wrapper-block
-          date=date
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-1`)
-        />
+        <!-- Split Sponsored block-->
+        <common-table-hr-element />
+        <common-table-spacer-element height="12" />
+        <tr>
+          <td>
+            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
+              </tr>
+              <common-table-spacer-element height="12" />
+            </table>
+            <table align="left" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+            <table align="right" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-hr-element />
+        <common-table-spacer-element height="20" />
 
         <!-- Content list block-->
         <common-content-list-block
@@ -86,6 +115,28 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
         <!-- Content list block -->
         <common-content-list-block
           date=date
+          section-name="Daily Digs"
+          newsletter=newsletter
+          with-image=true
+          image-position="right"
+          with-header=false
+          with-section=false
+          with-teaser=true
+          url-params=urlParams
+          limit=1
+        />
+
+        <!--Daily Digs -->
+        <common-ad-wrapper-block
+          date=date
+          newsletter=newsletter
+          promotion-component="daily-dig-block"
+          placement-id=get(nativeX, `placements.${newsletter.alias}.daily-digs`)
+        />
+
+        <!-- Content list block -->
+        <common-content-list-block
+          date=date
           section-name="Main"
           newsletter=newsletter
           with-section=false
@@ -95,14 +146,43 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           skip=2
         />
 
-        <!-- Advertisement / Promotional by block-->
-        <common-ad-wrapper-block
-          date=date
-          newsletter=newsletter
-          promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-          placement-id=get(nativeX, `placements.${newsletter.alias}.slot-2`)
-        />
+        <!-- Split Sponsored block-->
+        <common-table-hr-element />
+        <common-table-spacer-element height="12" />
+        <tr>
+          <td>
+            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" valign="middle" style="font-size:15px;line-height:20px; color:#666666;font-weight:400;text-align: center;">Sponsored</td>
+              </tr>
+              <common-table-spacer-element height="12" />
+            </table>
+            <table align="left" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+            <table align="right" role="presentation" width="300" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <common-ad-promotion-sponsored-block
+                    date=date
+                    newsletter=newsletter
+                    ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-hr-element />
+        <common-table-spacer-element height="20" />
 
         <!-- Content list block -->
         <common-content-list-block
@@ -121,7 +201,7 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+          ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-3`)
         />
 
@@ -156,7 +236,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-4`)
         />
 
@@ -175,7 +254,6 @@ $ const urlParams = (utmTerm) ? { "utm_term" : utmTerm } : false;
           date=date
           newsletter=newsletter
           promotion-component="advertisement-block"
-          ad-unit=emailX.getAdUnit({ name: "ad-slot-5", alias: newsletter.alias })
           placement-id=get(nativeX, `placements.${newsletter.alias}.slot-5`)
         />
 

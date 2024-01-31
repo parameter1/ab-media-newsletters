@@ -19,5 +19,8 @@
   },
   "<common-ad-promotion-ab-block>": {
     "template": "./promotion-ab.marko"
+  },
+  "<common-ad-promotion-daily-dig-block>": {
+    "template": "./promotion-daily-dig.marko"
   }
 }
