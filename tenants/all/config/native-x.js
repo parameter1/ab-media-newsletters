@@ -1,5 +1,5 @@
 module.exports = {
-  uri: 'https://delivery.mindfulcms.com/abmedia/default/compat/native-email/email-placement',
+  uri: process.env.NATIVEX_SERVE_URI || 'https://delivery.mindfulcms.com/abmedia/default/compat/native-email/email-placement',
   placements: {
     'athletic-business-today': {
       'digital-focus-top': '62f126175a48b00001162a04',
