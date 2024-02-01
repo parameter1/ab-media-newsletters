@@ -22,5 +22,26 @@
   },
   "<common-ad-promotion-daily-dig-block>": {
     "template": "./promotion-daily-dig.marko"
+  },
+  "<common-ad-email-x-dpm-block>": {
+    "template": "./email-x-dpm.marko",
+    "<response>": {
+      "<data>": {
+        "<ad>": {
+          "@height": "number",
+          "@mindfulCreativeId": "string",
+          "@width": "number"
+        }
+      },
+      "@imageSrc": "string"
+    },
+    "<dpm>": {
+      "@enabled": "boolean",
+      "@lc": "string",
+      "@lcv": "string",
+      "@lkw": "string",
+      "@ln": "string"
+    }
+    }
   }
 }

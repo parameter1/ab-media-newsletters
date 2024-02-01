@@ -27,34 +27,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
     <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
       <@link target="_blank" ...input.link href=href />
     </marko-core-img>
-    <if(defaultValue(dpm.enabled, true))>
-      $ const position = dpm.position || 0;
-      $ const lcvDefaultValue = get(data, "ad.advertiserName");
-      $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
-        // allow null to unset the default values.
-        if (dpm[key] === null) return { ...o, [key]: "" };
-
-        // otherwise treat all values as strings
-        const value = `${dpm[key] || ''}`;
-        if (!value) return o;
-        // if value is in the form of {some.path} (e.g. {ad.lineItemname})
-        // get the value off of the emailx response
-        // otherwise, treat the value as a literal string and use it
-        const matches = /^\{(.*)\}$/.exec(value);
-        if (matches && matches[1]) {
-          const v = get(data, matches[1]);
-          if (v) return { ...o, [key]: v };
-          return o;
-        }
-        return { ...o, [key]: value };
-      }, {
-        lc: "Advertising",
-        lkw: "bannerad",
-        ln: get(data, "ad.name"),
-        lcv: lcvDefaultValue,
-      });
-      <marko-newsletters-omail-dpm ...dpmArgs />
-    </if>
+    <common-ad-email-x-dpm-block dpm=dpm response=response />
   </if>
   <else>
     <${input.whenEmpty} />
