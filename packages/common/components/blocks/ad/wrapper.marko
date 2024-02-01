@@ -1,4 +1,4 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { convertAdToContent } from "@parameter1/base-cms-marko-newsletters-native-x/utils";
 import PromotionAdvertisementBlock from "./promotion-advertisement";
@@ -34,6 +34,7 @@ $ const PromotionComponent = promotionComponents[defaultValue(input.promotionCom
         section-name=sectionName
         content=convertAdToContent(data, { sectionName })
         advertiser=data.advertiser
+        creative-id=get(data, "creative.mindfulCreativeId")
       />
     </if>
     <else-if(adUnit)>
