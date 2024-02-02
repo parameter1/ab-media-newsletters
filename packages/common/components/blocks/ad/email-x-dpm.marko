@@ -1,0 +1,34 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { get, getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
+
+$ const dpm = getAsArray(input, "dpm");
+$ const response = getAsObject(input, "response");
+
+<if(defaultValue(dpm.enabled, true))>
+  $ const data = getAsObject(response, "data");
+  $ const lcvDefaultValue = get(data, "ad.advertiserName");
+  $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
+    // allow null to unset the default values.
+    if (dpm[key] === null) return { ...o, [key]: "" };
+
+    // otherwise treat all values as strings
+    const value = `${dpm[key] || ""}`;
+    if (!value) return o;
+    // if value is in the form of {some.path} (e.g. {ad.lineItemname})
+    // get the value off of the emailx response
+    // otherwise, treat the value as a literal string and use it
+    const matches = /^\{(.*)\}$/.exec(value);
+    if (matches && matches[1]) {
+      const v = get(data, matches[1]);
+      if (v) return { ...o, [key]: v };
+      return o;
+    }
+    return { ...o, [key]: value };
+  }, {
+    lc: "Advertising",
+    lkw: "bannerad",
+    ln: get(data, "ad.name"),
+    lcv: lcvDefaultValue,
+  });
+  <marko-newsletters-omail-dpm ...dpmArgs />
+</if>

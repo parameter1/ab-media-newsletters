@@ -3,6 +3,7 @@ import { get, getAsObject } from "@parameter1/base-cms-object-path";
 $ const { req } = out.global;
 $ const nativeAdLayout = get(req, "query.native-ad-layout");
 $ const newsletter = getAsObject(input, "newsletter");
+$ const creativeId = get(input, "creativeId");
 $ const { sectionName, date, content } = input;
 
 $ const url = get(content, "siteContext.path");
@@ -18,7 +19,23 @@ $ const imgLinkStyles = {
   "display": "block",
   "font-size": "14px",
   "line-height": 0,
-}
+};
+
+$ const nameLinkStyles = {
+  "font-size": "24px",
+  "line-height": "28px",
+  "color": "#202022",
+  "font-weight": "700",
+  "text-decoration": "none",
+};
+
+$ const linkAttrs = {
+  ...(getAsObject(input, "link.attrs")),
+  ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+};
+
+$ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };
+$ const nameLinkAttrs = { style: nameLinkStyles, ...linkAttrs };
 
 <tr>
   <td align="center" valign="top">
@@ -41,7 +58,7 @@ $ const imgLinkStyles = {
                     attrs={ border: 0, style: imgStyles }
                     class="img_resize2"
                   >
-                    <@link href=url target="_blank" attrs={ style: imgLinkStyles } />
+                    <@link href=url target="_blank" attrs=imgLinkAttrs />
                   </marko-newsletter-imgix>
                 </marko-core-obj-value>
               </td>
@@ -56,16 +73,16 @@ $ const imgLinkStyles = {
                           options={ w: 180, h: 80, fit: "fill", auto: "format,compress" }
                           attrs={ border: 0, width: 90, style: imgStyles }
                         >
-                          <@link href=url target="_blank" attrs={ style: imgLinkStyles } />
+                          <@link href=url target="_blank" attrs=imgLinkAttrs />
                         </marko-newsletter-imgix>
                       </marko-core-obj-value>
                     </td>
                   </tr>
                   <tr>
                     <td align="left" valign="top">
-                      <a href=url target="_blank" style="font-size: 24px;line-height: 28px;color: #202022;font-weight: 700;text-decoration: none;" class="font1">
-                        ${content.name}
-                      </a>
+                      <marko-core-obj-text obj=content field="name" tag=false>
+                        <@link href=url target="_blank" attrs=nameLinkAttrs class="font1" />
+                      </marko-core-obj-text>
                     </td>
                   </tr>
                   <common-table-spacer-element height="9" />

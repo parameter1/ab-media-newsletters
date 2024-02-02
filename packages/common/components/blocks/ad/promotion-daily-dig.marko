@@ -1,6 +1,13 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
 
+$ const creativeId = get(input, "creativeId");
 $ const newsletter = getAsObject(input, "newsletter");
 $ const { content, advertiser } = input;
 
-<common-content-daily-dig-block newsletter=newsletter content=content advertiser=advertiser />
+<common-content-daily-dig-block
+  newsletter=newsletter
+  content=content
+  with-image=true
+  advertiser=advertiser
+  mindful-creative-id=creativeId
+/>

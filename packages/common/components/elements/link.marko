@@ -1,3 +1,5 @@
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
+
 $ const { linkText, linkUrl } = input;
 
 $ const linkStyle = {
@@ -9,10 +11,15 @@ $ const linkStyle = {
   ...input.linkStyle,
 };
 
+$ const attrs = {
+  ...getAsObject(input, "attrs"),
+  style: linkStyle,
+};
+
 <tr>
   <td align="left" valign="top">
-    <a style=linkStyle href=linkUrl>
+    <marko-core-link href=linkUrl target="_blank" attrs=attrs>
       ${linkText}
-    </a>
+    </marko-core-link>
   </td>
 </tr>

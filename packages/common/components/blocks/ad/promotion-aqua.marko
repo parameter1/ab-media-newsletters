@@ -4,7 +4,7 @@ $ const { req } = out.global;
 $ const nativeAdLayout = get(req, "query.native-ad-layout");
 $ const newsletter = getAsObject(input, "newsletter");
 $ const { sectionName, date, content } = input;
-
+$ const creativeId = get(input, "creativeId");
 $ const url = get(content, "siteContext.path");
 $ const company = getAsObject(content, "company");
 
@@ -19,6 +19,22 @@ $ const imgLinkStyles = {
   "font-size": "14px",
   "line-height": 0,
 }
+
+$ const nameLinkStyles = {
+  "font-size": "24px",
+  "line-height": "28px",
+  "color": "#202022",
+  "font-weight": "700",
+  "text-decoration": "none",
+};
+
+$ const linkAttrs = {
+  ...(getAsObject(input, "link.attrs")),
+  ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+};
+
+$ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };
+$ const nameLinkAttrs = { style: nameLinkStyles, ...linkAttrs };
 
 <tr>
   <td align="center" valign="top">
@@ -37,7 +53,9 @@ $ const imgLinkStyles = {
                 <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td align="left" valign="top">
-                      <a href=url target="_blank" style="font-size: 24px;line-height: 28px;color: #202022;font-weight: 700;text-decoration: none;" class="font1">${content.name}</a>
+                      <marko-core-obj-text obj=content field="name" tag=false>
+                        <@link href=url target="_blank" attrs=nameLinkAttrs class="font1" />
+                      </marko-core-obj-text>
                     </td>
                   </tr>
                   <common-table-spacer-element height="9" />
@@ -58,7 +76,7 @@ $ const imgLinkStyles = {
                     attrs={ border: 0, style: imgStyles }
                     class="img_resize2"
                   >
-                    <@link href=url target="_blank" attrs={ style: imgLinkStyles } />
+                    <@link href=url target="_blank" attrs=imgLinkAttrs />
                   </marko-newsletter-imgix>
                 </marko-core-obj-value>
               </td>

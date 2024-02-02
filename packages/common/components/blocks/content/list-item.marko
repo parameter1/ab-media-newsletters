@@ -1,24 +1,17 @@
-import { get, getAsArray } from "@parameter1/base-cms-object-path";
+import { get, getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { URLSearchParams } from "url";
 
 $ const { config } = out.global;
-
 $ const { newsletter, content, urlParams, advertiser } = input;
-
-$ const getImageHeight = (width) => {
-  return getRelativeCropRectangleHeight({ width, cropRectangle: content.primaryImage.cropRectangle })
-};
-
+$ const creativeId = get(input, "mindfulCreativeId");
 $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
 $ const withSection = defaultValue(input.withSection, true);
 $ const continueReading = defaultValue(input.continueReading, false);
 $ const withTeaser = defaultValue(input.withTeaser, true);
-
 $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLSearchParams(urlParams)}` : "";
 $ const contentUrl = `${content.siteContext.url}${queryString}`
-
 $ const newsletterConfig = config.get(newsletter.alias);
 $ const primaryColor = defaultValue(get(newsletterConfig, "primaryColor"), "#103A57");
 
@@ -38,19 +31,35 @@ $ const tagStyle = {
   "line-height": "19px",
   "color": primaryColor,
   "text-transform": "uppercase",
-}
+};
 
 $ const sponsoredTagStyle = {
     ...tagStyle,
   "color": "#a91b20",
   "font-size": "16px",
-}
+};
 
 $ const logoStyle = {
   "font-size": "14px",
   "line-height": 0,
   "border": 0,
-}
+};
+
+$ const nameLinkStyles = {
+  "font-size": "24px",
+  "line-height": "28px",
+  "color": "#202022",
+  "font-weight": "700",
+  "text-decoration": "none",
+};
+
+$ const linkAttrs = {
+  ...(getAsObject(input, "link.attrs")),
+  ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+};
+
+$ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };
+$ const nameLinkAttrs = { style: nameLinkStyles, ...linkAttrs };
 
 <tr>
   <td align="center" valign="top">
@@ -62,16 +71,14 @@ $ const logoStyle = {
         <tr>
           <td align="left" valign="center" style=sponsoredTagStyle>${tag}</td>
           <td align="right" width="200">
-            <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
-              <marko-newsletter-imgix
-                src=advertiser.image.src
-                alt=advertiser.image.alt
-                options={ w: 360, auto: "format,compress" }
-                attrs={ border: 0, width: 180, style: logoStyle }
-              >
-                <@link href=advertiser.website target="_blank" attrs={ style: imgLinkStyles } />
-              </marko-newsletter-imgix>
-            </marko-core-obj-value>
+            <marko-newsletter-imgix
+              src=advertiser.image.src
+              alt=advertiser.image.alt
+              options={ w: 360, auto: "format,compress" }
+              attrs={ border: 0, width: 180, style: logoStyle }
+            >
+              <@link href=advertiser.website target="_blank" attrs=imgLinkAttrs />
+            </marko-newsletter-imgix>
           </td>
         </tr>
       </if>
@@ -94,7 +101,7 @@ $ const logoStyle = {
                 class="img_resize1"
                 attrs={ border: 0, width: 610, align: "center", vspace: 5, style: imgStyles }
               >
-                <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles } />
+                <@link href=contentUrl target="_blank" attrs=imgLinkAttrs />
               </marko-newsletter-imgix>
             </marko-core-obj-value>
           </td>
@@ -105,9 +112,9 @@ $ const logoStyle = {
             <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" class="pad" style="padding: 0 30px 0px 0;">
               <tr>
                 <td align="left" valign="top">
-                  <a style="font-size: 24px;line-height: 28px;color: #202022;font-weight: 700;text-decoration: none;" class="font1" target="_blank" href=contentUrl>
-                    ${content.name}
-                  </a>
+                  <marko-core-obj-text obj=content field="name" tag=false>
+                    <@link href=contentUrl target="_blank" attrs=nameLinkAttrs class="font1" />
+                  </marko-core-obj-text>
                 </td>
               </tr>
               <tr>
@@ -123,7 +130,7 @@ $ const logoStyle = {
                     </if>
                     <if(continueReading)>
                       <common-table-spacer-element height="9" />
-                      <common-cta-element link-url=contentUrl />
+                      <common-cta-element link-url=contentUrl mindful-creative-id=creativeId />
                     </if>
                   </table>
                 </td>
@@ -142,9 +149,9 @@ $ const logoStyle = {
                   <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" class="pad" style="padding: 0 30px 0px 0;">
                     <tr>
                       <td align="left" valign="top">
-                        <a style="font-size: 24px;line-height: 28px;color: #202022;font-weight: 700;text-decoration: none;" class="font1" target="_blank" href=contentUrl>
-                          ${content.name}
-                        </a>
+                        <marko-core-obj-text obj=content field="name" tag=false>
+                          <@link href=contentUrl target="_blank" attrs=nameLinkAttrs class="font1" />
+                        </marko-core-obj-text>
                       </td>
                     </tr>
                     <tr>
@@ -160,7 +167,7 @@ $ const logoStyle = {
                           </if>
                           <if(continueReading)>
                             <common-table-spacer-element height="9" />
-                            <common-cta-element link-url=contentUrl />
+                            <common-cta-element link-url=contentUrl mindful-creative-id=creativeId />
                           </if>
                         </table>
                       </td>
@@ -176,7 +183,7 @@ $ const logoStyle = {
                       class="img_resize2"
                       attrs={ border: 0, width: 200, style: imgStyles }
                     >
-                      <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles } />
+                      <@link href=contentUrl target="_blank" attrs=imgLinkAttrs />
                     </marko-newsletter-imgix>
                   </marko-core-obj-value>
                 </td>
@@ -206,7 +213,7 @@ $ const logoStyle = {
                 </tr>
                 <if(continueReading)>
                   <common-table-spacer-element height="9" />
-                  <common-cta-element link-url=contentUrl />
+                  <common-cta-element link-url=contentUrl mindful-creative-id=creativeId />
                 </if>
               </table>
             </td>
