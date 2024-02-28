@@ -24,7 +24,11 @@ $ const promotionComponents = {
 $ const PromotionComponent = promotionComponents[defaultValue(input.promotionComponent, "advertisement-block")];
 
 <if(nativeX.uri && placementId)>
-  <core-native-x-fetch|{ data }| uri=nativeX.uri date=date placement-id=placementId>
+  <core-native-x-fetch|{ data, tenant, creativeId }|
+    uri=nativeX.uri
+    date=date
+    placement-id=placementId
+  >
     <if(data)>
       <${PromotionComponent}
         date=date
@@ -32,7 +36,8 @@ $ const PromotionComponent = promotionComponents[defaultValue(input.promotionCom
         section-name=sectionName
         content=convertAdToContent(data, { sectionName })
         advertiser=data.advertiser
-        creative-id=get(data, "creative.mindfulCreativeId")
+        tenant=tenant
+        creative-id=creativeId
       />
     </if>
     <else-if(adUnit)>

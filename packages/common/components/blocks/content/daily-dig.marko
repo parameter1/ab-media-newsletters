@@ -4,6 +4,7 @@ import { URLSearchParams } from "url";
 
 $ const { content, urlParams, advertiser } = input;
 $ const creativeId = get(input, "mindfulCreativeId");
+$ const tenant = get(input, "mindfulTenant");
 $ const continueReading = defaultValue(input.continueReading, false);
 $ const withTeaser = defaultValue(input.withTeaser, true);
 $ const queryString = (urlParams && content.type !== 'promotion') ? `?${new URLSearchParams(urlParams)}` : "";
@@ -41,6 +42,7 @@ $ const nameLinkStyles = {
 $ const linkAttrs = {
   ...(getAsObject(input, "link.attrs")),
   ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+  ...(tenant && { 'data-mindful-tenant': tenant }),
 };
 
 $ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };
