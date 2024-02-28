@@ -5,6 +5,7 @@ import { URLSearchParams } from "url";
 $ const { config } = out.global;
 $ const { newsletter, content, urlParams, advertiser } = input;
 $ const creativeId = get(input, "mindfulCreativeId");
+$ const tenant = get(input, "mindfulTenant");
 $ const withImage = defaultValue(input.withImage, false);
 $ const imagePosition = defaultValue(input.imagePosition, 'right');
 $ const withSection = defaultValue(input.withSection, true);
@@ -56,6 +57,7 @@ $ const nameLinkStyles = {
 $ const linkAttrs = {
   ...(getAsObject(input, "link.attrs")),
   ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+  ...(tenant && { 'data-mindful-tenant': tenant }),
 };
 
 $ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };

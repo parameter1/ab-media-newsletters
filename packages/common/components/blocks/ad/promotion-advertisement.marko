@@ -4,6 +4,7 @@ $ const { req } = out.global;
 $ const nativeAdLayout = get(req, "query.native-ad-layout");
 $ const newsletter = getAsObject(input, "newsletter");
 $ const creativeId = get(input, "creativeId");
+$ const tenant = get(input, "tenant");
 $ const { sectionName, date, content } = input;
 
 $ const url = get(content, "siteContext.path");
@@ -32,6 +33,7 @@ $ const nameLinkStyles = {
 $ const linkAttrs = {
   ...(getAsObject(input, "link.attrs")),
   ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+  ...(tenant && { 'data-mindful-tenant': tenant }),
 };
 
 $ const imgLinkAttrs = { style: imgLinkStyles, ...linkAttrs };
