@@ -22,7 +22,6 @@ const config = {
   'aqua-today': {
     ...brands.aqua,
     name: 'AQUA Today',
-    description: 'Leading products & services from the industry\'s top suppliers.',
     subscribeText: '<a href=https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land&utm_source=Newsletter&utm_email=email&utm_term=&utm_medium=4&oly_enc_id=4" target="_blank" style="text-decoration: none;color: #103A57">Subscribe to AQUA</a> — free to qualified pool and spa professionals!',
   },
 };
