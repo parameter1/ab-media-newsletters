@@ -34,6 +34,18 @@ config
       width: 300,
       height: 250,
     },
+    {
+      name: 'ad-slot-6',
+      id: '662fac56868ddfca1900c22c',
+      width: 300,
+      height: 250,
+    },
+    {
+      name: 'ad-slot-7',
+      id: '662fac66e9ad1fb593f89d82',
+      width: 300,
+      height: 250,
+    },
   ])
 
   .setAdUnits('wfb-enews', [
