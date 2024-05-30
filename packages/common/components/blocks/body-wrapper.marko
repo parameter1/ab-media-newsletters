@@ -1,4 +1,10 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { get } from "@parameter1/base-cms-object-path";
+
+$ const { config } = out.global;
 $ const { newsletter, date } = input;
+$ const newsletterConfig = config.get(newsletter.alias);
+$ const preheader = defaultValue(get(newsletterConfig, "preheader") || false);
 
 <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
@@ -7,15 +13,17 @@ $ const { newsletter, date } = input;
         <tr>
           <td align="center" valign="top">
             <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-              <!-- START PREHEADER TEXT -->
-              <div style="display: none; font-size: 0px; line-height: 0px; max-height: 0px; max-width: 0px; width: 0px; opacity: 0; overflow: hidden;">
-			          <!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
-                  <div style="display: none; max-height: 0px; overflow: hidden;">
-                    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-                  </div>
-              </div>
-              <br/><br/><br/>
-              <!-- END PREHEADER TEXT -->
+              <if(preheader===true)>
+                <!-- START PREHEADER TEXT -->
+                <div style="display: none; font-size: 0px; line-height: 0px; max-height: 0px; max-width: 0px; width: 0px; opacity: 0; overflow: hidden;">
+                  <!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+                    <div style="display: none; max-height: 0px; overflow: hidden;">
+                      &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+                    </div>
+                </div>
+                <br/><br/><br/>
+                <!-- END PREHEADER TEXT -->
+              </if>
               <!-- Header block -->
               <if(input.header)>
                 <${input.header} />
