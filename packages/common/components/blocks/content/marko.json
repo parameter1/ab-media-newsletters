@@ -11,15 +11,6 @@
   "<common-content-partners-block>": {
     "template": "./partners.marko"
   },
-  "<common-content-partners-ab-block>": {
-    "template": "./partners-ab.marko"
-  },
-  "<common-content-partners-aqua-block>": {
-    "template": "./partners-aqua.marko"
-  },
-  "<common-content-partners-wfb-block>": {
-    "template": "./partners-wfb.marko"
-  },
   "<common-content-magazine-block>": {
     "template": "./magazine.marko"
   },
