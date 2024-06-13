@@ -13,6 +13,7 @@ module.exports = {
       'slot-3': '62c6c8246b7dcc0001967589',
       'slot-4': '62c6c8364e70600001b245a9',
       'slot-5': '62c6c84b4e70600001b24623',
+      partners: '666863d520cc6fb9f02f6761',
     },
     'wfb-enews': {
       sponsored: '6548e09ef0334a0001121fb2',
@@ -20,6 +21,7 @@ module.exports = {
       'slot-2': '62c6c8ae4e70600001b2479d',
       'slot-3': '62c6c8d16b7dcc0001967829',
       'slot-4': '62c6c8e36b7dcc000196786c',
+      partners: '66683fa9dda1c6be4f5df28f',
     },
     'aqua-today': {
       sponsored: '6304f4b379581f0001830e89',
@@ -28,6 +30,7 @@ module.exports = {
       'slot-3': '62c6ca554e70600001b24c33',
       'slot-4': '62c6ca686b7dcc0001967c86',
       'slot-5': '62c6ca776b7dcc0001967cc8',
+      partners: '6668640b020c62b4a2ed3bae',
     },
   },
 };

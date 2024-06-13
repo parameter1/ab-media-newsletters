@@ -1,0 +1,83 @@
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { convertAdToContent } from "@parameter1/base-cms-marko-newsletters-native-x/utils";
+
+import shuffle from "../../../utils/shuffle-array";
+
+
+$ const { sectionName, date, newsletter } = input;
+
+$ const withImage = defaultValue(input.withImage, false);
+$ const imagePosition = defaultValue(input.imagePosition, 'right');
+$ const withSection = defaultValue(input.withSection, true);
+$ const urlParams = defaultValue(input.urlParams, false);
+
+$ const perRow = defaultValue(input.perRow, 4);
+$ const { config } = out.global;
+$ const nativeX = config.getAsObject("nativeX");
+$ const placementId = get(nativeX, `placements.${newsletter.alias}.partners`)
+$ const opts = { n: 25 };
+
+<core-native-x-fetch|{ data, tenant }| uri=nativeX.uri date=date placement-id=placementId opts=opts debug=input.debug>
+  $ const ads = shuffle(data);
+  <tr>
+    <td align="center" valign="top">
+      <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" valign="top" >
+            <common-list-header-element title="A Special Thank You To Our Partners" />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <table role="presentation" width="100%" border="0" align="center"  cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" valign="top" >
+            $ const { config } = out.global;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      $ const chunkSize = 4;
+      $ const chunks = [];
+      $ for (let i = 0; i < ads.length; i += chunkSize) {
+          const chunk = ads.slice(i, i + chunkSize);
+          chunks.push(chunk);
+      };
+      <for|chunk, index| of=chunks>
+        <table role="presentation" width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="wrap003">
+            <tr>
+              <for|ad, index| of=chunk>
+                $ const node = convertAdToContent(ad, { sectionName: 'Premium Partner' });
+                $ const creativeId = ad.creative.id;
+                <td>
+                    $ const linkAttrs = {
+                      ...(getAsObject(input, "link.attrs")),
+                      ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+                      ...(tenant && { 'data-mindful-tenant': tenant }),
+                    };
+
+                    $ const imgLinkAttrs = { ...linkAttrs };
+                  <marko-newsletter-imgix
+                    src=node.primaryImage.src
+                    options={ w: 120, h: 50, fit: "clip" }
+                  >
+                    <@link href=`${node.siteContext.url}` target="_blank" attrs=imgLinkAttrs />
+                  </marko-newsletter-imgix>
+                </td>
+              </for>
+            </tr>
+            <common-table-spacer-element height="32" attributes={ colspan: chunk.length } />
+        </table>
+      </for>
+    </td>
+  </tr>
+
+</core-native-x-fetch>
