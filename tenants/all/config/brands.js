@@ -20,6 +20,13 @@ module.exports = {
         { provider: 'instagram', href: 'https://www.instagram.com/athleticbiz/', target: '_blank' },
       ],
     },
+    downloadApp: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter/apps',
+      apps: [
+        { provider: 'google', href: '', target: '_blank', },
+        { provider: 'apple', href: '', target: '_blank', },
+      ],
+    },
   },
   aqua: {
     brandName: 'Aqua',
@@ -40,6 +47,13 @@ module.exports = {
         { provider: 'instagram', href: 'https://www.instagram.com/aqua_magazine/', target: '_blank' },
         { provider: 'pinterest', href: 'https://www.pinterest.com/aquamagazine/_created/', target: '_blank' },
         { provider: 'linkedin', href: 'https://www.linkedin.com/company/4231363/', target: '_blank' },
+      ],
+    },
+    downloadApp: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter/apps',
+      apps: [
+        { provider: 'google', href: '', target: '_blank', },
+        { provider: 'apple', href: '', target: '_blank', },
       ],
     },
   },
@@ -64,6 +78,13 @@ module.exports = {
         { provider: 'linkedin', href: 'https://www.linkedin.com/company/wood-floor-business/', target: '_blank' },
         { provider: 'youtube', href: 'https://www.youtube.com/c/WoodFloorBusiness', target: '_blank' },
         { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
+      ],
+    },
+    downloadApp: {
+      imagePath: '/files/base/abmedia/all/image/static/newsletter/apps',
+      apps: [
+        { provider: 'google', href: '', target: '_blank', },
+        { provider: 'apple', href: '', target: '_blank', },
       ],
     },
   },
