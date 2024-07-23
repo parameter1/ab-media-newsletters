@@ -136,6 +136,29 @@ $ const taglineStyle = {
                 </td>
               </tr>
               <common-table-spacer-element height="20" />
+
+              $ const downloadApp = get(newsletterConfig, "downloadApp");
+              $ const downloadAppLinks = getAsArray(downloadApp, "apps");
+              <tr>
+                <td align="left" valign="top" style=smallerStyle>
+                  <strong>Download the ${website.get("name")} app:</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <for|app| of=downloadAppLinks>
+                    <marko-newsletter-imgix
+                      src=`${downloadApp.imagePath}/${app.provider}.png`
+                      alt=app.provider
+                      options={ h: 50 }
+                      attrs={ border: 0, align: "center", style: "padding-left: 15px; padding-right: 5px;" }
+                    >
+                      <@link href=app.href target="_blank" />
+                    </marko-newsletter-imgix>
+                  </for>
+                </td>
+              </tr>
+              <common-table-spacer-element height="20" />
               <tr>
                 <td align="left" valign="top" style=smallerStyle>
                   <strong>AB Media Inc.</strong><br/>
