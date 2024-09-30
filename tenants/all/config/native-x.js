@@ -32,5 +32,8 @@ module.exports = {
       'slot-5': '62c6ca776b7dcc0001967cc8',
       partners: '6668640b020c62b4a2ed3bae',
     },
+    'aqua-breaking-news': {
+      partners: '6668640b020c62b4a2ed3bae',
+    },
   },
 };
