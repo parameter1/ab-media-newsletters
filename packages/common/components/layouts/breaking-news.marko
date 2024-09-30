@@ -1,0 +1,58 @@
+import { get } from "@parameter1/base-cms-object-path";
+import queryFragment from "@ab-media/package-common/graphql/fragments/content-list";
+
+$ const { website, config } = out.global;
+$ const { newsletter, date, publicationId } = input.data;
+
+$ const nativeX = config.getAsObject("nativeX");
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-head-block />
+  </@head>
+  <@body style="padding:0; margin:0;font-family: 'Roboto', Arial, sans-serif; -webkit-text-size-adjust:100%;">
+    <common-body-wrapper-block newsletter=newsletter date=date>
+      <@body>
+        <tr>
+          <td align="center" valign="top">
+            <table role="presentation" border="0" align="center" cellpadding="0" cellspacing="0" width="610" class="wrap003">
+              <tr>
+                <td align="center" valign="middle" style="font-size:30px;color: #000000;text-decoration: none;display: block;font-family:'Roboto', Arial, sans-serif;text-transform: uppercase;">
+                  Breaking News
+                </td>
+                <common-table-hr-element />
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <common-table-spacer-element height="24" />
+
+        <!--Lead story block-->
+        <common-content-list-block
+          date=date
+          section-name="Top Story"
+          newsletter=newsletter
+          with-image=true
+          image-position="top"
+          limit=1
+        />
+
+        <!-- Magazine Cover block -->
+        <common-content-magazine-block
+          date=date
+          section-name="Magazine"
+          publication-id=publicationId
+          newsletter=newsletter
+        />
+
+        <!-- Content Partners block -->
+        <common-content-partners-block newsletter=newsletter date=date />
+
+      </@body>
+    </common-body-wrapper-block>
+  </@body>
+</marko-newsletter-root>

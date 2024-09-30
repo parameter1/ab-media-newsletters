@@ -25,6 +25,12 @@ const config = {
     preheader: true,
     subscribeText: '<a href=https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land&utm_source=Newsletter&utm_email=email&utm_term=&utm_medium=4&oly_enc_id=4" target="_blank" style="text-decoration: none;color: #103A57">Subscribe to AQUA</a> — free to qualified pool and spa professionals!',
   },
+  'aqua-breaking-news': {
+    ...brands.aqua,
+    name: 'Breaking News',
+    preheader: true,
+    subscribeText: '<a href=https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land&utm_source=Newsletter&utm_email=email&utm_term=&utm_medium=4&oly_enc_id=4" target="_blank" style="text-decoration: none;color: #103A57">Subscribe to AQUA</a> — free to qualified pool and spa professionals!',
+  },
 };
 
 module.exports = config;
