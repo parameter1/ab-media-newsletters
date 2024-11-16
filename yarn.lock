@@ -1009,10 +1009,10 @@
     moment "^2.29.1"
     node-fetch "^2.6.9"
 
-"@parameter1/base-cms-marko-newsletters-native-x@^4.74.0":
-  version "4.74.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-newsletters-native-x/-/base-cms-marko-newsletters-native-x-4.74.0.tgz#658c541ec86272c1f9736aa0b51bbcba59f269e8"
-  integrity sha512-K6oc9aiUnnQ8sN9l/T8wC9mce6yYJC3aRFi27g5+nViVQ/skqq30yJbkUoQtZRcCG2D7kNrET461ZZ9KH5AI3w==
+"@parameter1/base-cms-marko-newsletters-native-x@^4.80.3":
+  version "4.80.3"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-newsletters-native-x/-/base-cms-marko-newsletters-native-x-4.80.3.tgz#dae604f9729663150197b59e16282c62e8132892"
+  integrity sha512-NC0CDJDu+TSAA0XQAeHMBS5NyBg7AKTCpe51XIaTxc5m/Fu7EInHG2eAG+MxmPwbmrS1yROxvG7bHUBLmDkANQ==
   dependencies:
     "@parameter1/base-cms-object-path" "^4.74.0"
     "@parameter1/base-cms-utils" "^4.74.0"
